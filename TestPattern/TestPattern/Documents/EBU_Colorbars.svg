@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="200"
+   height="150">
+  <rect
+     width="25" height="150"
+     x="0" y="0"
+     fill="#bfbfbf"/>
+  <rect
+     width="25" height="150"
+     x="25" y="0"
+     fill="#bfbf00"/>
+  <rect
+     width="25" height="150"
+     x="50" y="0"
+     fill="#00bfbf"/>
+  <rect
+     width="25" height="150"
+     x="75" y="0"
+     fill="#00bf00"/>
+  <rect
+     width="25" height="150"
+     x="100" y="0"
+     fill="#bf00bf"/>
+  <rect
+     width="25" height="150"
+     x="125" y="0"
+     fill="#bf0000"/>
+  <rect
+     width="25" height="150"
+     x="150" y="0"
+     fill="#0000bf"/>
+  <rect
+     width="25" height="150"
+     x="175" y="0"
+     fill="#000000"/>
+</svg>

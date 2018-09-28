@@ -1,0 +1,239 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:Sfxr">
+
+	<Style TargetType="TextBlock" x:Key="OldSchoolTextBlock">
+		<Setter Property="Margin"
+				Value="12, 10, 0, 0"/>
+		<Setter Property="FontFamily"
+				Value="/Fonts/amiga4ever.ttf#Amiga Forever"/>
+		<Setter Property="Foreground"
+				Value="#FF504030"/>
+	</Style>
+	
+	<Style TargetType="Button" x:Key="OldSchoolButton">
+		<Setter Property="FontFamily"
+				Value="/Fonts/amiga4ever.ttf#Amiga Forever"/>
+		<Setter Property="FontSize"
+				Value="16"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+
+								<VisualState x:Name="Normal"/>
+
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="contentPresenter"
+																	   Storyboard.TargetProperty="(UIElement.Foreground)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFA09088" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.Background)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFFFF0E0" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.BorderBrush)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFA09088" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="contentPresenter"
+																	   Storyboard.TargetProperty="(UIElement.Foreground)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FF877C65" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.Background)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFB6A68D" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.BorderBrush)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FF877C65" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+
+							</VisualStateGroup>
+
+						</VisualStateManager.VisualStateGroups>
+						<Border x:Name="Background"
+								Background="#FFA09088"
+								BorderBrush="Black"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Margin="12,5,12,5"/>
+
+						<ContentControl  x:Name="contentPresenter"
+										  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+										  Margin="5,7,5,5"
+										  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+										  Content="{TemplateBinding Content}"
+										  ContentTemplate="{TemplateBinding ContentTemplate}"
+										  Foreground="Black"/>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="Button" x:Key="SliderTextButton">
+		<Setter Property="FontFamily"
+				Value="/Fonts/amiga4ever.ttf#Amiga Forever"/>
+		<Setter Property="HorizontalAlignment"
+				Value="Right"/>
+		<Setter Property="VerticalAlignment"
+				Value="Center"/>
+		<Setter Property="FontSize"
+				Value="13"/>
+		<Setter Property="Margin"
+				Value="15,0,0,0"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal"/>
+								<VisualState x:Name="Pressed"/>
+								<VisualState x:Name="Checked"/>
+							</VisualStateGroup>
+
+						</VisualStateManager.VisualStateGroups>
+						<Border Background="Transparent"
+								BorderBrush="Transparent"
+								BorderThickness="0"/>
+
+						<ContentControl   HorizontalAlignment="Center"
+										  VerticalAlignment="Center"
+										  Content="{TemplateBinding Content}"
+										  ContentTemplate="{TemplateBinding ContentTemplate}"
+										  Foreground="Black"/>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style TargetType="RadioButton" x:Key="OldSchoolRadioButton">
+		<Setter Property="FontFamily"
+				Value="/Fonts/amiga4ever.ttf#Amiga Forever"/>
+		<Setter Property="FontSize"
+				Value="16"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RadioButton">
+					<Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+
+								<VisualState x:Name="Normal"/>
+
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="contentPresenter"
+																	   Storyboard.TargetProperty="(UIElement.Foreground)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFA09088" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.Background)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFFFF0E0" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.BorderBrush)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFA09088" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Checked">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="contentPresenter"
+																	   Storyboard.TargetProperty="(UIElement.Foreground)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FFFFF0E0" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.Background)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="#FF988070" />
+										</ObjectAnimationUsingKeyFrames>
+
+										<ObjectAnimationUsingKeyFrames Duration="0"
+																	   Storyboard.TargetName="Background"
+																	   Storyboard.TargetProperty="(UIElement.BorderBrush)">
+											<DiscreteObjectKeyFrame KeyTime="0"
+																	Value="Black" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+
+							</VisualStateGroup>
+
+						</VisualStateManager.VisualStateGroups>
+						<Border x:Name="Background"
+								Background="#FFA09088"
+								BorderBrush="Black"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Margin="12,5,12,5"/>
+
+						<ContentControl  x:Name="contentPresenter"
+										  HorizontalAlignment="Center"
+										  Margin="5,7,5,5"
+										  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+										  Content="{TemplateBinding Content}"
+										  ContentTemplate="{TemplateBinding ContentTemplate}"
+										  Foreground="Black"/>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+
+
+
+
+	<ControlTemplate x:Key="PhoneSimpleRepeatButton" TargetType="RepeatButton">
+		<Rectangle/>
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="PhoneSimpleThumbHorizontal" TargetType="Thumb">
+		<Border Background="Transparent" Margin="-480,-18">
+			<Rectangle Width="4" Height="15" Fill="{StaticResource PhoneForegroundBrush}"/>
+		</Border>
+	</ControlTemplate>
+
+	
+</ResourceDictionary>

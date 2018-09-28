@@ -1,0 +1,88 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="Love.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Love="clr-namespace:Love" xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="Portrait" Orientation="Portrait"
+	shell:SystemTray.IsVisible="false"
+	MouseLeftButtonDown="PhoneApplicationPageMouseLeftButtonDown"
+	MouseLeftButtonUp="PhoneApplicationPageMouseLeftButtonUp"
+	MouseMove="PhoneApplicationPageMouseMove"
+	Loaded="PhoneApplicationPageLoaded">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="80"/>
+		</Grid.RowDefinitions>
+		<Love:BeautifulCanvas/>
+
+		<UI:AdControl Grid.Row="0" x:Name="adControl"
+					  ApplicationId="29377ffd-9318-4312-8d3d-ee8352add1fd"
+					  AdUnitId="71779"
+					  Width="480" Height="80"/>
+
+		<!--TitlePanel contains the name of the application and page title-->
+		<StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="12,17,0,28">
+			<TextBlock x:Name="ApplicationTitle" Text="Say it in English" Style="{StaticResource PhoneTextNormalStyle}"/>
+			<Grid>
+				<TextBlock x:Name="PageTitle" Text="Love ♥"
+						   Margin="9,-7,0,0"
+						   Style="{StaticResource PhoneTextTitle1Style}"/>
+				<Button HorizontalAlignment="Right" Click="AboutButtonClick">
+					<TextBlock Text="About"/>
+				</Button>
+			</Grid>
+		</StackPanel>
+
+
+
+		<!--ContentPanel - place additional content here-->
+		<Grid x:Name="ContentPanel" Grid.Row="2">
+			<Canvas x:Name="drawCanvas"
+					Background="Transparent"/>
+		</Grid>
+
+		<Button x:Name="happyLove"
+				Grid.Row="2"
+				Visibility="Collapsed"
+				Margin="0,0,0,80"
+				Click="HappyLoveClick">
+			<StackPanel>
+				<TextBlock Text="Congratulations!" HorizontalAlignment="Center" />
+				<TextBlock Text="Isn't it really nice to say love" HorizontalAlignment="Center" />
+				<TextBlock Text="to somebody?" HorizontalAlignment="Center" />
+				<TextBlock Text="Well, you can always say it again." HorizontalAlignment="Center" />
+			</StackPanel>
+		</Button>
+		
+		<Button x:Name="brokenLove"
+				Grid.Row="2"
+				Visibility="Collapsed"
+				Margin="0,0,0,80"
+				Click="BrokenLoveClick">
+			<StackPanel>
+				<TextBlock Text="Too bad!" HorizontalAlignment="Center" />
+				<TextBlock Text="You were unable to say love" HorizontalAlignment="Center" />
+				<TextBlock Text="to someone!" HorizontalAlignment="Center" />
+				<TextBlock Text="But you always can get another shot!" HorizontalAlignment="Center" />
+			</StackPanel>
+		</Button>
+
+		<UI:AdControl Grid.Row="3" x:Name="adControl2"
+					  ApplicationId="0b88c6fc-f615-498f-a147-7e2d34fb8d5c"
+					  AdUnitId="71780"
+					  Width="480" Height="80"/>
+	</Grid>
+
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,17 @@
+program test;
+var
+x , y:Integer;
+r : real;
+begin
+x := 1;
+y := 0;
+
+while y < 11 and true do
+begin
+writeln(y,"! = ", x);
+writeln("----------------");
+y := y + 1;
+x := x * y;
+end;
+
+end.

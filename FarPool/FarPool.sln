@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarPool", "FarPool\FarPool.csproj", "{5420B0A1-C899-4CCE-A188-71942691601F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer", "Farseer\Farseer.csproj", "{E90F5FAE-FB3F-43B5-B927-354CA3025DC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoBase", "DemoBase\DemoBase.csproj", "{DE5E7D3F-80E1-4949-B09C-B7AE91FE3D80}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs13
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DemoBase\\DemoBase.csproj
+		SccProjectName1 = DemoBase
+		SccLocalPath1 = DemoBase
+		SccProjectUniqueName2 = FarPool\\FarPool.csproj
+		SccProjectName2 = FarPool
+		SccLocalPath2 = FarPool
+		SccProjectUniqueName3 = Farseer\\Farseer.csproj
+		SccProjectName3 = Farseer
+		SccLocalPath3 = Farseer
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5420B0A1-C899-4CCE-A188-71942691601F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5420B0A1-C899-4CCE-A188-71942691601F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5420B0A1-C899-4CCE-A188-71942691601F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5420B0A1-C899-4CCE-A188-71942691601F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5420B0A1-C899-4CCE-A188-71942691601F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5420B0A1-C899-4CCE-A188-71942691601F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E90F5FAE-FB3F-43B5-B927-354CA3025DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90F5FAE-FB3F-43B5-B927-354CA3025DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90F5FAE-FB3F-43B5-B927-354CA3025DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90F5FAE-FB3F-43B5-B927-354CA3025DC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5E7D3F-80E1-4949-B09C-B7AE91FE3D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5E7D3F-80E1-4949-B09C-B7AE91FE3D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5E7D3F-80E1-4949-B09C-B7AE91FE3D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5E7D3F-80E1-4949-B09C-B7AE91FE3D80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

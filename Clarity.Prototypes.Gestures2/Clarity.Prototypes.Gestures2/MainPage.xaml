@@ -1,0 +1,108 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Clarity.Prototypes.Gestures2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+    xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    xmlns:ci="clr-namespace:Clarity.Phone.Interactivity.Input"
+    xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"
+    xmlns:local="clr-namespace:Clarity.Prototypes.Gestures2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.DataContext>
+        <local:MainPageViewModel />
+    </phone:PhoneApplicationPage.DataContext>
+    
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,24,0,30">
+            <TextBlock x:Name="ApplicationTitle" Text="CLARITY CONSULTING" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="gestures" Margin="-3,-8,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <StackPanel Orientation="Horizontal" Height="30" VerticalAlignment="Top" Margin="0,10,0,0">
+                <TextBlock Text="Detected:" />
+                <TextBlock Margin="10,0,0,0" Text="{Binding RecognizedGesture}" />
+            </StackPanel>
+        </StackPanel>
+
+        <!--<Grid Grid.Row="1" Background="Orange" Height="300" Width="300" RenderTransformOrigin=".5,.5">
+            <Grid.RenderTransform>
+                <CompositeTransform x:Name="transform" Rotation="0" />
+            </Grid.RenderTransform>
+        </Grid>-->
+        
+        <!--ContentPanel - place additional content here-->
+<Grid x:Name="ContentGrid" Grid.Row="1" Background="#FF1F1f1F" Opacity=".1">
+    <i:Interaction.Behaviors>
+        <ci:GestureBehavior EnableDebugMode="True" />
+    </i:Interaction.Behaviors>
+    <i:Interaction.Triggers>
+        <ci:GestureTrigger Gesture="Tap">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="DoubleTap">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="TapAndHold">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="Flick">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="TwoFingerTap">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="Shape">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="PressAndTap">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="TwoFingerDoubleTap">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="TwoFingerTapAndHold">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <!--<ci:GestureTrigger Gesture="Scale">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="Rotate">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>
+        <ci:GestureTrigger Gesture="Pan">
+            <cmd:EventToCommand Command="{Binding GestureRecognizedCommand}" PassEventArgsToCommand="True" />
+        </ci:GestureTrigger>-->
+    </i:Interaction.Triggers>
+</Grid>
+    </Grid>
+    
+    <!-- Sample code showing usage of ApplicationBar
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="appbar_button1" IconUri="/Images/appbar_button1.png" Text="Button 1"></shell:ApplicationBarIconButton>
+            <shell:ApplicationBarIconButton x:Name="appbar_button2" IconUri="/Images/appbar_button2.png" Text="Button 2"></shell:ApplicationBarIconButton>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItem1" Text="MenuItem 1"></shell:ApplicationBarMenuItem>
+                <shell:ApplicationBarMenuItem x:Name="menuItem2" Text="MenuItem 2"></shell:ApplicationBarMenuItem>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+    -->
+
+
+</phone:PhoneApplicationPage>

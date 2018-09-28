@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{70CBFE8A-AA1F-4BBF-AC5F-3BC661ECA57F}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmuSeven</RootNamespace>
+    <AssemblyName>EmuSeven</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>EmuSeven.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>EmuSeven.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NES\APU\APU.cs" />
+    <Compile Include="NES\APU\Chn_DMC.cs" />
+    <Compile Include="NES\APU\Chn_Noize.cs" />
+    <Compile Include="NES\APU\Chn_Rectangle1.cs" />
+    <Compile Include="NES\APU\Chn_Rectangle2.cs" />
+    <Compile Include="NES\APU\Chn_Triangle.cs" />
+    <Compile Include="NES\APU\Chn_VRC6Pulse1.cs" />
+    <Compile Include="NES\APU\Chn_VRC6Pulse2.cs" />
+    <Compile Include="NES\APU\Chn_VRC6Sawtooth.cs" />
+    <Compile Include="NES\APU\CONSTS.cs" />
+    <Compile Include="NES\APU\WaveRecorder.cs" />
+    <Compile Include="NES\CPU\CPU.cs" />
+    <Compile Include="NES\Debugger\DEBUG.cs" />
+    <Compile Include="NES\Input\InputDevice.cs" />
+    <Compile Include="NES\Input\InputManager.cs" />
+    <Compile Include="NES\Input\JoyButton.cs" />
+    <Compile Include="NES\Input\Joypad.cs" />
+    <Compile Include="NES\Input\TIMER.cs" />
+    <Compile Include="NES\Memory\Cartridge.cs" />
+    <Compile Include="NES\Memory\CPUMemory.cs" />
+    <Compile Include="NES\Memory\Mappers\IMapper.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper00.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper01.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper02.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper03.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper04.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper06.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper07.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper08.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper09.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper10.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper11.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper112.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper113.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper13.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper15.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper16.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper17.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper18.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper189.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper19.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper21.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper212.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper22.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper225_255.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper23.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper24.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper25.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper26.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper32.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper33.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper34.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper41.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper61.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper64.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper65.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper66.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper69.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper71.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper73.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper75.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper78.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper79.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper80.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper82.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper85.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper90.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper91.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper92.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper93.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper94.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper95.cs" />
+    <Compile Include="NES\Memory\Mappers\Mapper97.cs" />
+    <Compile Include="NES\Memory\PPUMemory.cs" />
+    <Compile Include="NES\NES.cs" />
+    <Compile Include="NES\Output\Audio\Devices\SoundDeviceGeneral16.cs" />
+    <Compile Include="NES\Output\Audio\IAudioDevice.cs" />
+    <Compile Include="NES\Output\Video\Devices\Vid_GDI.cs" />
+    <Compile Include="NES\Output\Video\IGraphicDevice.cs" />
+    <Compile Include="NES\PPU\PaletteFormat.cs" />
+    <Compile Include="NES\PPU\Paletter.cs" />
+    <Compile Include="NES\PPU\PPU.cs" />
+    <Compile Include="NES\State.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

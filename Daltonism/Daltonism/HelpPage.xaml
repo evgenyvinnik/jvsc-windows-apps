@@ -1,0 +1,136 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="Daltonism.Page1"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="Portrait" Orientation="Portrait"
+	mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+	shell:SystemTray.IsVisible="False"
+	Loaded="PhoneApplicationPageLoaded"
+	Unloaded="PhoneApplicationPageUnloaded">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!--Beautiful backround canvas-->
+		<Canvas x:Name="drawCanvas"
+					Grid.RowSpan="2" />
+
+		<!--TitlePanel contains the name of the application and page title-->
+		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="7,17,0,28">
+			<TextBlock Text="{Binding Path=Localizedresources.HelpName, Source={StaticResource LocalizedStrings}}"
+					   Margin="0,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+		</StackPanel>
+
+		<!--ContentPanel - place additional content here-->
+		<Grid x:Name="ContentPanel" Grid.Row="1">
+
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition Height="80"/>
+			</Grid.RowDefinitions>
+
+			<StackPanel>
+				<TextBlock Text="{Binding Path=Localizedresources.GoalMessage, Source={StaticResource LocalizedStrings}}"
+					   FontSize="22" FontWeight="Bold"/>
+				<TextBlock TextWrapping="Wrap"
+						   Text="{Binding Path=Localizedresources.Description, Source={StaticResource LocalizedStrings}}"/>
+
+				<TextBlock Text="{Binding Path=Localizedresources.DeveloperString, Source={StaticResource LocalizedStrings}}"
+						FontSize="22" FontWeight="Bold"/>
+				<TextBlock TextWrapping="Wrap"
+							Text="John Vinnik Software House (www.jvsh.ca)"/>
+				<TextBlock Text="Support e-mail"
+						FontSize="22" FontWeight="Bold"/>
+				<TextBlock TextWrapping="Wrap"
+							Text="evgenyvinnik@ya.ru"/>
+
+				<TextBlock Text="{Binding Path=Localizedresources.Controls, Source={StaticResource LocalizedStrings}}"
+					   FontSize="22" FontWeight="Bold"
+						   Margin="0,20,0,0"/>
+				<ListBox>
+					<ListBoxItem Margin="10,10,10,10">
+						<StackPanel Orientation="Horizontal">
+							<Button Content="{Binding Path=Localizedresources.RecallButton, Source={StaticResource LocalizedStrings}}"
+								Height="85" Width="85"
+								Grid.Row="1" Grid.Column="0"
+								Style="{StaticResource BubbleCreme}"/>
+							<TextBlock Text="{Binding Path=Localizedresources.RecallDescription, Source={StaticResource LocalizedStrings}}" 
+									   Margin="10"
+									   TextWrapping="Wrap" Width="350"  VerticalAlignment="Center" />
+						</StackPanel>
+					</ListBoxItem>
+					<ListBoxItem  Margin="10,10,10,10">
+						<StackPanel Orientation="Horizontal">
+							<Button Content="{Binding Path=Localizedresources.GradeButton, Source={StaticResource LocalizedStrings}}"
+								Height="85" Width="85"
+								Grid.Row="2" Grid.Column="0"
+								Style="{StaticResource BubbleCreme}"/>
+							<TextBlock Text="{Binding Path=Localizedresources.GradeDescription, Source={StaticResource LocalizedStrings}}" 
+									   Margin="10"
+									   TextWrapping="Wrap" Width="350" VerticalAlignment="Center" />
+						</StackPanel>
+					</ListBoxItem>
+					<ListBoxItem  Margin="10,10,10,10">
+						<StackPanel Orientation="Horizontal">
+							<Button Content="{Binding Path=Localizedresources.RedColor, Source={StaticResource LocalizedStrings}}"
+								Foreground="Red"
+								Height="85" Width="85"
+								Grid.Row="0" Grid.Column="2"
+								Style="{StaticResource BubbleCreme}"/>
+							<TextBlock Text="{Binding Path=Localizedresources.RedDescription, Source={StaticResource LocalizedStrings}}" 
+									   Margin="10"
+									   TextWrapping="Wrap" Width="350" VerticalAlignment="Center" />
+						</StackPanel>
+					</ListBoxItem>
+					<ListBoxItem  Margin="10,10,10,10">
+						<StackPanel Orientation="Horizontal">
+							<Button Content="{Binding Path=Localizedresources.GreenColor, Source={StaticResource LocalizedStrings}}"
+								Foreground="Green"
+								Height="85" Width="85"
+								Grid.Row="1" Grid.Column="2"
+								Style="{StaticResource BubbleCreme}"/>
+							<TextBlock Text="{Binding Path=Localizedresources.GreenDescription, Source={StaticResource LocalizedStrings}}" 
+									   Margin="10"
+									   TextWrapping="Wrap" Width="350" VerticalAlignment="Center" />
+						</StackPanel>
+					</ListBoxItem>
+					<ListBoxItem  Margin="10,10,10,10">
+						<StackPanel Orientation="Horizontal">
+							<Button Content="{Binding Path=Localizedresources.BlueColor, Source={StaticResource LocalizedStrings}}"
+								Foreground="Blue"
+								Height="85" Width="85"
+								Grid.Row="2" Grid.Column="2"
+								Style="{StaticResource BubbleCreme}"/>
+							<TextBlock Text="{Binding Path=Localizedresources.BlueDescription, Source={StaticResource LocalizedStrings}}" 
+									   Margin="10"
+									   TextWrapping="Wrap" Width="350" VerticalAlignment="Center" />
+						</StackPanel>
+					</ListBoxItem>
+
+				</ListBox>
+
+			</StackPanel>
+
+
+			<!--Check Button-->
+			<Button Content="{Binding Path=Localizedresources.BackToGameButton, Source={StaticResource LocalizedStrings}}"
+					Margin="120, 0, 120 ,0"
+					Click="BackToGameButtonClick"
+					Grid.Row="1"
+					Style="{StaticResource BubbleCreme}"/>
+
+		</Grid>
+	</Grid>
+
+</phone:PhoneApplicationPage>

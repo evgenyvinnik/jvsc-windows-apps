@@ -1,0 +1,72 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="PascalInterpreter.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+	Loaded="PhoneApplicationPageLoaded"
+	shell:SystemTray.IsVisible="False">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!--TitlePanel contains the name of the application and page title-->
+		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+			<TextBlock x:Name="ApplicationTitle" Text="PASCAL INTERPRETER" Style="{StaticResource PhoneTextNormalStyle}"/>
+			<TextBlock x:Name="PageTitle" Text="programs" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+		</StackPanel>
+
+		<!--ContentPanel - place additional content here-->
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+			<ListBox x:Name="programList" Grid.Row="1">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="250"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<TextBlock FontSize="22"
+									   Text="{Binding ProgramName}"
+									   Margin="12,0,0,0"
+									   Grid.Column="0"/>
+							<TextBlock FontSize="22"
+									   Text="{Binding ProgramSize}"
+									   Margin="12,0,0,0"
+									   Grid.Column="1"/>
+						</Grid>
+
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+				<toolkit:GestureService.GestureListener>
+					<toolkit:GestureListener 
+									DoubleTap="ListBoxItemDoubleTap"/>
+				</toolkit:GestureService.GestureListener>
+			</ListBox>
+		</Grid>
+	</Grid>
+ 
+	<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+			<shell:ApplicationBarIconButton IconUri="/Images/dark/new.png" Text="New" Click="NewButtonClick"/>
+			<shell:ApplicationBarIconButton IconUri="/Images/dark/edit.png" Text="Edit" Click="EditButtonClick"/>
+			<shell:ApplicationBarIconButton IconUri="/Images/dark/delete.png" Text="Delete" Click="DeleteButtonClick"/>
+
+			<shell:ApplicationBar.MenuItems>
+				<shell:ApplicationBarMenuItem Text="Help/About" x:Name="HelpAboutMenuItem" Click="HelpAboutMenuItemClick"/>
+			</shell:ApplicationBar.MenuItems>
+		</shell:ApplicationBar>
+	</phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

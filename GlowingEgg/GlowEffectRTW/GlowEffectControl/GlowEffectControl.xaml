@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="GlowEffectControl.GlowEffectControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid x:Name="LayoutRoot" Background="#00000000" Width="Auto" Height="Auto" ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0" x:Name="TopLeft">
+            <Rectangle.Fill>
+                <RadialGradientBrush Center="1.0,1.0" RadiusX="1" RadiusY="1" GradientOrigin="1.0,1.0" >
+                    <GradientStop x:Name="TopLeftPrimary" Color="#B4ffcc00" Offset="0"></GradientStop>
+                    <GradientStop x:Name="TopLeftSecondary" Color="#00000000" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="0" Grid.Column="1" x:Name="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                    <GradientStop x:Name="TopSecondary" Color="#00000000" Offset="0.0"></GradientStop>
+                    <GradientStop x:Name="TopPrimary" Color="#B4ffcc00" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="0" Grid.Column="2" x:Name="TopRight">
+            <Rectangle.Fill>
+                <RadialGradientBrush Center="0.0,1.0" RadiusX="1" RadiusY="1" GradientOrigin="0.0,1.0">
+                    <GradientStop x:Name="TopRightPrimary" Color="#B4ffcc00" Offset="0"></GradientStop>
+                    <GradientStop x:Name="TopRightSecondary" Color="#00000000" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="0" x:Name="MiddleLeft">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0, 0.5" EndPoint="1, 0.5">
+                    <GradientStop x:Name="MiddleLeftSecondary" Color="#00000000" Offset="0.0"></GradientStop>
+                    <GradientStop x:Name="MiddleLeftPrimary" Color="#B4ffcc00" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="1" x:Name="Middle" Fill="#B4ffcc00">
+        </Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="2" x:Name="MiddleRight">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="1, 0.5" EndPoint="0, 0.5">
+                    <GradientStop x:Name="MiddleRightSecondary" Color="#00000000" Offset="0.0"></GradientStop>
+                    <GradientStop x:Name="MiddleRightPrimary" Color="#B4ffcc00" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Grid.Column="0" x:Name="BottomLeft">
+            <Rectangle.Fill>
+                <RadialGradientBrush Center="1.0,0.0" RadiusX="1" RadiusY="1" GradientOrigin="1.0,0.0" >
+                    <GradientStop x:Name="BottomLeftPrimary" Color="#B4ffcc00" Offset="0"></GradientStop>
+                    <GradientStop x:Name="BottomLeftSecondary" Color="#00000000" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Grid.Column="1" x:Name="Bottom">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0.5, 1" EndPoint="0.5, 0">
+                    <GradientStop x:Name="BottomSecondary" Color="#00000000" Offset="0.0"></GradientStop>
+                    <GradientStop x:Name="BottomPrimary" Color="#B4ffcc00" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Grid.Row="2" Grid.Column="2" x:Name="BottomRight">
+            <Rectangle.Fill>
+                <RadialGradientBrush Center="0.0,0.0" RadiusX="1" RadiusY="1" GradientOrigin="0.0,0.0" >
+                    <GradientStop x:Name="BottomRightPrimary" Color="#B4ffcc00" Offset="0"></GradientStop>
+                    <GradientStop x:Name="BottomRightSecondary" Color="#00000000" Offset="1"></GradientStop>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

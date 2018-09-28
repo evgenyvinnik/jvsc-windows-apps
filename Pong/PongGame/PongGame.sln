@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PongGame", "PongGame\PongGame\PongGame.csproj", "{E905A577-CBEA-4AE0-82D8-5F6C42C2A69D}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PongGameContent", "PongGame\PongGameContent\PongGameContent.contentproj", "{7296DADF-7FFE-4AB5-AFF0-EB1B3A0E0EF9}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs13
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PongGame\\PongGame\\PongGame.csproj
+		SccProjectName1 = PongGame/PongGame
+		SccLocalPath1 = PongGame\\PongGame
+		SccProjectUniqueName2 = PongGame\\PongGameContent\\PongGameContent.contentproj
+		SccProjectName2 = PongGame/PongGameContent
+		SccLocalPath2 = PongGame\\PongGameContent
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E905A577-CBEA-4AE0-82D8-5F6C42C2A69D}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{E905A577-CBEA-4AE0-82D8-5F6C42C2A69D}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{E905A577-CBEA-4AE0-82D8-5F6C42C2A69D}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{E905A577-CBEA-4AE0-82D8-5F6C42C2A69D}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{E905A577-CBEA-4AE0-82D8-5F6C42C2A69D}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{E905A577-CBEA-4AE0-82D8-5F6C42C2A69D}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{7296DADF-7FFE-4AB5-AFF0-EB1B3A0E0EF9}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{7296DADF-7FFE-4AB5-AFF0-EB1B3A0E0EF9}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

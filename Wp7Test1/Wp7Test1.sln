@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wp7Test1", "Wp7Test1\Wp7Test1\Wp7Test1.csproj", "{550287CD-A149-4E64-A681-62464AF55478}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Wp7Test1Content", "Wp7Test1\Wp7Test1Content\Wp7Test1Content.contentproj", "{1A1DE320-63CF-44E5-9DCF-8769E2D9509D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs13
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Wp7Test1\\Wp7Test1\\Wp7Test1.csproj
+		SccProjectName1 = Wp7Test1/Wp7Test1
+		SccLocalPath1 = Wp7Test1\\Wp7Test1
+		SccProjectUniqueName2 = Wp7Test1\\Wp7Test1Content\\Wp7Test1Content.contentproj
+		SccProjectName2 = Wp7Test1/Wp7Test1Content
+		SccLocalPath2 = Wp7Test1\\Wp7Test1Content
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{550287CD-A149-4E64-A681-62464AF55478}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{550287CD-A149-4E64-A681-62464AF55478}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{550287CD-A149-4E64-A681-62464AF55478}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{550287CD-A149-4E64-A681-62464AF55478}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{550287CD-A149-4E64-A681-62464AF55478}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{550287CD-A149-4E64-A681-62464AF55478}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{1A1DE320-63CF-44E5-9DCF-8769E2D9509D}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{1A1DE320-63CF-44E5-9DCF-8769E2D9509D}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

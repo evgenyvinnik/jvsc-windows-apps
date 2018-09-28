@@ -1,0 +1,89 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="PascalInterpreter.EditorPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
+	mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+	shell:SystemTray.IsVisible="True">
+
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<!--Pivot Control-->
+		<controls:Pivot Title="PASCAL INTERPRETER" x:Name="ProgramPivot">
+			<!--Pivot item one-->
+			<controls:PivotItem Header="editor" x:Name="EditorItem">
+				<TextBox x:Name="ProgramText"
+					 AcceptsReturn="True"
+					 VerticalScrollBarVisibility="Visible"
+					 HorizontalScrollBarVisibility="Auto"/>
+			</controls:PivotItem>
+
+			<!--Pivot item two-->
+			<controls:PivotItem Header="console" x:Name="ConsoleItem">
+				<TextBox x:Name="ConsoleText"
+					 AcceptsReturn="True"
+					 VerticalScrollBarVisibility="Auto"
+					 HorizontalScrollBarVisibility="Auto"/>
+			</controls:PivotItem>
+		</controls:Pivot>
+	</Grid>
+
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<!--<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+			<TextBlock x:Name="ApplicationTitle" Text="PASCAL INTERPRETER" Style="{StaticResource PhoneTextNormalStyle}"/>
+			<TextBlock x:Name="PageTitle" Text="program name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+		</StackPanel>
+
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition x:Name="EditorRow" Height="380"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="Editor" Style="{StaticResource PhoneTextNormalStyle}"/>
+			<TextBox x:Name="ProgramText"
+					 AcceptsReturn="True"
+					 VerticalScrollBarVisibility="Visible"
+					 HorizontalScrollBarVisibility="Visible"
+					 Grid.Row="1"
+					 GotFocus="ProgramTextGotFocus" />
+			<StackPanel Grid.Row="2" Orientation="Horizontal">
+				<TextBlock Text="Console" Style="{StaticResource PhoneTextNormalStyle}" Width="300"/>
+				<Image Source="/Images/dark/down.png" ManipulationStarted="DownButtonClick" Width="60" Stretch="None" />
+				<Image Source="/Images/dark/up.png" ManipulationStarted="UpButtonClick"  Width="60" Stretch="None" />
+			</StackPanel>
+			<TextBox x:Name="ConsoleText"
+					 AcceptsReturn="True"
+					 IsReadOnly="True"
+					 VerticalScrollBarVisibility="Visible"
+					 HorizontalScrollBarVisibility="Visible"
+					 Grid.Row="3"
+					 GotFocus="ConsoleTextGotFocus"/>
+
+		</Grid>
+	</Grid>-->
+ 
+	<!--Sample code showing usage of ApplicationBar-->
+	<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+			<shell:ApplicationBarIconButton IconUri="/Images/dark/save.png" Text="Save" Click="SaveButtonClick"/>
+			<shell:ApplicationBarIconButton IconUri="/Images/dark/run.png" Text="Run" Click="RunButtonClick"/>
+			<shell:ApplicationBarIconButton IconUri="/Images/dark/close.png" Text="Close" Click="CloseButtonClick"/>
+		</shell:ApplicationBar>
+	</phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

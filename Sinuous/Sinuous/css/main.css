@@ -1,0 +1,531 @@
+﻿
+/**
+ * @author Hakim El Hattab
+ *
+ * Contains the main styles for the Sinuous game.
+ */
+
+
+/**
+ * Fonts
+ */
+@font-face {
+	font-family: MolengoRegular;
+	src: url('../assets/fonts/molengo-regular-webfont.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+/**
+ * Sprites
+ */
+header #legend li span {
+	background: url('../assets/images/sprites.png') no-repeat top left;
+}
+
+
+/**
+ * Global styles
+ */
+html, body {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #222222;
+	font-size: 12px;
+	overflow: hidden;
+	height: 100%;
+}
+
+a, a:hover {
+	text-decoration: none;
+	padding: 1px;
+	transition: all .08s linear;
+	-o-transition: all .08s linear;
+	-moz-transition: all .08s linear;
+	-webkit-transition: all .08s linear;
+}
+
+
+/**
+ * Main canvas
+ */
+#game {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	margin-left: -500px;
+	margin-top: -330px;
+	z-index: 1;
+}
+
+canvas {
+	cursor: crosshair;
+	background-color: #111111;
+	border: 6px #333333 solid;
+	border-radius: 4px;
+	display: none;
+}
+
+header, footer, section {
+	display: block;
+}
+
+/**
+ *
+ */
+header {
+	margin: 0;
+	padding: 0 8px 8px 8px;
+	background-color: rgba( 0, 0, 0, 0.5 );
+	color: #eee;
+	overflow: hidden;
+	width: 100%;
+	height: 27px;
+	z-index: 5;
+	position: relative;
+	transition: height .22s ease-out;
+	-o-transition: height .22s ease-out;
+	-moz-transition: height .22s ease-out;
+	-webkit-transition: height .22s ease-out;
+}
+
+	header.open {
+		height: 200px;
+		-webkit-box-shadow: 0 1px 6px #000;
+	}
+
+	header h1 {
+		font-family: MolengoRegular, Helvetica, Arial, sans-serif;
+		float: left;
+	}
+
+	header .header-instruction {
+		font-size: 10px;
+		font-style: italic;
+		color: #999;
+		float: left;
+		margin: 13px 0 0 15px;
+		transition: opacity .18s linear;
+		-o-transition: opacity .18s linear;
+		-moz-transition: opacity .18s linear;
+		-webkit-transition: opacity .18s linear;
+	}
+
+		header.open .header-instruction {
+			opacity: 0;
+		}
+
+	header div.extra {
+		margin: 45px 0 0 20px;
+		clear: both;
+		transition: opacity .18s linear;
+		-o-transition: opacity .18s linear;
+		-moz-transition: opacity .18s linear;
+		-webkit-transition: opacity .18s linear;
+	}
+
+		header.open div.extra {
+
+		}
+
+		header div.extra h3 {
+			margin-bottom: 10px;
+		}
+
+		header a {
+			padding: 2px 4px 2px 2px;
+			color: #999;
+
+			transition: all .1s ease-in;
+			-o-transition: all .1s ease-out;
+			-moz-transition: all .1s ease-out;
+			-webkit-transition: all .1s ease-out;
+		}
+			header a:hover {
+				padding: 2px 4px 2px 2px;
+				color: #ddd;
+				background-color: #333;
+				border-radius: 1px;
+			}
+
+		header section {
+			float: left;
+			padding: 0 25px;
+			border-left: 1px #333 solid;
+			height: 140px;
+		}
+
+		#about {
+			border: none;
+			padding-left: 0;
+		}
+
+		#about p {
+			font-size: 12px;
+			margin-bottom: 5px;
+			letter-spacing: 0.05em;
+		}
+
+		#about p.credits {
+			color: #666;
+			font-size: 11px;
+			margin: 15px 0 2px 0;
+			line-height: 1.4em;
+			font-style: italic;
+		}
+
+		#about a:hover {
+			padding: 2px 10px 2px 8px;
+		}
+
+		#legend {
+			padding-right: 10px;
+		}
+
+		#legend ul {
+			float: left;
+			margin-right: 20px
+		}
+
+			#legend ul li {
+				margin: 2px 0 10px 0;
+				clear: both;
+			}
+
+				#legend ul li span {
+					display: block;
+					width: 20px;
+					height: 20px;
+					padding: 4px 0 0 0px;
+					text-align: center;
+					margin: -3px 4px 0 0;
+					float: left;
+					font-size: 10px;
+				}
+
+					#legend ul li.player span {
+						background-position: 0px -138px;
+					}
+					#legend ul li.enemy span {
+						background-position: 0px -115px;
+					}
+					#legend ul li.life-up span {
+						background-position: 0px 0px;
+					}
+					#legend ul li.shield span {
+						background-position: 0px -23px;
+					}
+					#legend ul li.gravity-field span {
+						background-position: 0px -46px;
+					}
+					#legend ul li.time-warp span {
+						background-position: 0px -69px;
+					}
+					#legend ul li.minimize-dots span {
+						background-position: 0px -92px;
+					}
+
+		#share {
+			position: absolute;
+			top: 7px;
+			right: 15px;
+		}
+
+			#share iframe,
+			#share div {
+				margin: 0 4px;
+				display: inline-block;
+			}
+
+			#facebook-button {
+				position: relative;
+				top: 1px;
+			}
+			#retweet-button {
+
+			}
+			#flattr-button {
+				width: 110px;
+				height: 20px;
+			}
+			#follow-button {
+				width: 120px;
+			}
+
+		#settings {
+		}
+
+			#settings ul li {
+				margin: 5px 0;
+			}
+
+		#affiliation {
+		}
+
+			#affiliation img {
+				margin-top: 4px;
+			}
+			#affiliation a {
+				padding: 0px;
+			}
+			#affiliation a:hover {
+				padding: 0px;
+			}
+
+/**
+ * Footer styles
+ */
+footer {
+	position: absolute;
+	bottom: 15px;
+	text-align: center;
+	width: 100%;
+	color: #999;
+}
+	footer a {
+		padding: 6px;
+		border-radius: 4px;
+		color: #999;
+	}
+	footer a:hover {
+		padding: 6px;
+		color: #bbb;
+		background: rgba(0,0,0,0.3);
+	}
+	footer em {
+		font-weight: bold;
+	}
+	footer a:hover em {
+		color: #eee;
+	}
+
+/**
+ * Shared for game UI.
+ */
+div.ui {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #999999;
+	text-align: left;
+	padding: 8px;
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 4px;
+	float: left;
+}
+
+
+#promotion {
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+}
+	#promotion a {
+		opacity: 0.8;
+
+		-webkit-transition: opacity .14s ease-out;
+		-moz-transition: opacity .14s ease-out;
+		-o-transition: opacity .14s ease-out;
+		transition: opacity .14s ease-out;
+	}
+	#promotion a:hover {
+		opacity: 1;
+	}
+
+
+/**
+ * Game Status
+ */
+#game-status {
+		width: 984px;
+		height: 15px;
+		padding: 8px;
+		display: none;
+		position: absolute;
+		z-index: 2;
+	}
+
+		#game-status span {
+			color: #bbbbbb;
+			font-weight: bold;
+			margin-right: 5px;
+		}
+
+		#game-status .fps {
+			float: right;
+		}
+
+
+/**
+ * Game Panels
+ */
+#game-panels {
+	width: 1000px;
+	position: absolute;
+	z-index: 3;
+	display: none;
+}
+
+	#game-panels div.ui h2 {
+		margin-bottom: 20px;
+		color: #eeeeee;
+	}
+
+	#game-panels div.ui ul.instructions {
+		margin: 10px 0;
+	}
+
+	#game-panels div.ui ul.instructions li {
+		margin: 0 0 2px 0;
+	}
+
+	#game-panels div.ui #level-selector {
+		margin: 20px 0;
+		font-size: 11px;
+	}
+
+		#game-panels div.ui #level-selector span {
+
+		}
+
+		#game-panels div.ui #level-selector ul.levels {
+			margin: 10px 0;
+			display: inline;
+			padding: 4px;
+		}
+
+		#game-panels div.ui #level-selector ul.levels li {
+			display: inline;
+			margin: 1px;
+			padding: 5px;
+			background-color: #333;
+			cursor: pointer;
+			border-radius: 1px;
+			color: #fff;
+			transition: all .1s ease-out;
+			-o-transition: all .1s ease-out;
+			-moz-transition: all .1s ease-out;
+			-webkit-transition: all .1s ease-out;
+		}
+
+			#game-panels div.ui #level-selector ul.levels li.unlocked:hover {
+				background: #555;
+			}
+
+			#game-panels div.ui #level-selector ul.levels li.selected {
+				cursor: default;
+				background: #bb2222;
+				padding: 5px 9px;
+			}
+
+			#game-panels div.ui #level-selector ul.levels li.locked {
+				opacity: 0.5;
+				cursor: default;
+				color: #555;
+			}
+
+	#game-panels div.ui a {
+		outline: none;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 38px;
+		text-decoration: none;
+		color: #bbbbbb;
+		padding: 2px;
+		display: block;
+		transition: all .18s linear;
+		-o-transition: all .18s linear;
+		-moz-transition: all .18s linear;
+		-webkit-transition: all .18s linear;
+	}
+
+	#game-panels div.ui a:hover {
+		color: #ffffff;
+		background-color: #000000;
+		transition: all .18s linear;
+		-o-transition: all .18s linear;
+		-moz-transition: all .18s linear;
+		-webkit-transition: all .18s linear;
+	}
+
+	#message {
+		padding: 16px;
+		margin-top: 10px;
+		width: 225px;
+	}
+
+	#highscore-list {
+		padding: 16px;
+		margin: 10px 0 0 10px;
+	}
+
+		#highscore-list p.auth {
+			margin: 18px 0 8px 0;
+			padding: 4px 6px;
+			border-radius: 2px;
+			background-color: #111111;
+			color: #444444;
+			line-height: 1.2em;
+			width: 210px;
+		}
+
+		#highscore-list p.auth a {
+			font-size: 100%;
+			display: inline;
+			padding: 0 2px 1px 2px;
+			margin: 0 -2px 0 -2px;
+			border-radius: 2px;
+		}
+
+			#highscore-list p.auth.out {
+				background-color: #222222;
+				color: #ffffff;
+				font-size: 11px;
+				letter-spacing: 0.05em;
+			}
+			#highscore-list p.auth.out a {
+				color: #ce2424;
+			}
+
+		#highscore-list ul li {
+			margin: 0 0 2px 0;
+		}
+
+			#highscore-list ul li span {
+				margin: 0 8px 0 0;
+			}
+
+			#highscore-list ul li span.place {
+				font-size: 11px;
+			}
+
+			#highscore-list ul li span.name {
+				width: 67px;
+				display: inline-block;
+			}
+
+			#highscore-list ul li span.score {
+				width: 55px;
+				display: inline-block;
+				font-size: 11px;
+				color: #bbbbbb;
+				font-weight: bold;
+			}
+
+	#highscore-win {
+		padding: 16px;
+		margin: 10px 0 0 10px;
+		display: none;
+	}
+
+	#highscore-win input[type=text] {
+		border: none;
+		width: 180px;
+		font-size: 18px;
+		padding: 2px;
+		margin: 10px 0;
+	}
+
+
+#highscore-list,
+#highscore-win {
+	display: none !important;
+}

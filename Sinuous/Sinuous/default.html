@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en" manifest="http://www.sinuousgame.com/cache.manifest">
+<head>
+    <meta charset="utf-8" />
+    <title>Sinuous - Avoid the red dots!</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="A free game where your goal is to dodge red enemies, stay alive for as long as possible and gain high scores. Sounds simple, eh? If only... Give it a try!">
+    <meta name="keywords" content="html5, game, sinuous, hakim, elhattab, hakim el hattab, hakim elhattab, interactive, developer, flash, html5, canvas, web, experiments">
+    <meta name="author" content="Hakim El Hattab">
+
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <!-- Sinuous references -->
+    <link href="/css/default.css" rel="stylesheet" />
+
+    <link type="text/css" href="/css/reset.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="/css/main.css" rel="stylesheet" media="screen" />
+
+    <script src="/js/default.js"></script>
+
+    <script src="/MSAdvertisingJS/ads/ad.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>Sinuous</h1>
+        <span class="header-instruction">Expand for instructions &amp; settings.</span>
+        <!-- The extra content that can be expanded -->
+        <div class="extra">
+
+            <!-- About the game in general -->
+            <section id="about">
+                <h3>About</h3>
+                <p>A game with a single objective: avoid colliding with the red dots.<br />You can activate a boosts by picking up the rare green dots.</p>
+                <p>Sounds simple, eh? If only... Give it a try!</p>
+                <p class="credits">
+                    Created by <a href="http://hakim.se/">Hakim El Hattab</a> | <a href="http://twitter.com/hakimel">@hakimel</a><br />
+               </p>
+                <p class="credits">
+                    Ported by <a href="http://jvsh.ca/">Evgeny Vinnik</a> | <a href="http://twitter.com/evgenyvinnik">@evgenyvinnik</a><br />
+                </p>
+            </section>
+
+            <!-- Legend that defines the boost types -->
+            <section id="legend">
+                <h3>Legend</h3>
+                <ul>
+                    <li class="shield"><span>S</span> Shield</li>
+                    <li class="gravity-field"><span>G</span> Gravity Field</li>
+                    <li class="time-warp"><span>T</span> Time Warp</li>
+                    <li class="minimize-dots"><span>M</span> Minimize Dots</li>
+                </ul>
+                <ul>
+                    <li class="life-up"><span>1</span> Life Up</li>
+                    <li class="player"><span></span> Player</li>
+                    <li class="enemy"><span></span> Enemy</li>
+                </ul>
+            </section>
+
+            <!-- Gameplay and surrounding settings -->
+            <section id="settings">
+                <h3>Settings</h3>
+                <ul>
+                    <li><a id="reset-button" href="#">Reset game</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </header>
+
+    <!-- Wraps all game elements including UI panels and the canvas the game is rendered on -->
+    <div id="game">
+
+        <!-- Displays status information (score, time, fps) about the current game -->
+        <div id="game-status" class="ui"></div>
+
+        <!-- Holds the main game UI such as high score lists and instructions -->
+        <div id="game-panels">
+            <div id="message" class="ui">
+                <h2 id="title">Instructions</h2>
+                <ul class="instructions">
+                    <li>1. Avoid red dots.</li>
+                    <li>2. Hit other dots for boosts.</li>
+                    <li>3. Score extra points by moving around a lot.</li>
+                    <li>4. Stay alive.</li>
+                </ul>
+                <a href="#" id="start-button">Start</a>
+                <div id="level-selector">
+                    <span>Level:</span>
+                    <ul class="levels">
+                        <!-- This will be populated by JS -->
+                    </ul>
+                </div>
+            </div>
+            <div id="highscore-list" class="ui">
+                <h2>High Score</h2>
+                <ul id="highscore-output"></ul>
+                <!-- Auth markup is injected via JS here -->
+            </div>
+            <div id="highscore-win" class="ui">
+                <h2 id="highscore-place"></h2>
+                <p>Something to identify you by</p>
+                <input id="highscore-input" type="text" name="alias" maxlength="10" />
+                <a id="highscore-submit" href="#">Go</a>
+            </div>
+        </div>
+
+        <canvas id="world"></canvas>
+
+    </div>
+
+  
+
+    <footer>
+        <div id="myAd" style="margin: 0 auto; width: 728px; height: 90px; z-index: 1; "
+             data-win-control="MicrosoftNSJS.Advertising.AdControl"
+             data-win-options="{applicationId: '35cb953d-e186-4495-aefc-cecaae75bc84', adUnitId: '159369'}">
+        </div>
+        <a href="http://lab.hakim.se/">More <em>Games and Experiments</em></a> |
+        <a href="http://twitter.com/hakimel">Follow <em>@hakimel</em> on Twitter</a>|
+        <a href="http://twitter.com/evgenyvinnik">Follow <em>@evgenyvinnik</em> on Twitter</a>
+    </footer>
+
+
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="../js/libs/jquery-1.5.2.min.js"%3E%3C/script%3E'))</script>-->
+
+    <script type="text/javascript" src="js/sinuous.min.js"></script>
+
+</body>
+
+</html>

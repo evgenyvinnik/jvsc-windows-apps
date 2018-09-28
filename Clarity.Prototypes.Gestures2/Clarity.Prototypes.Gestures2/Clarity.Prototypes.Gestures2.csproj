@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1357D0B0-7491-4D24-9706-3717621CB298}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Clarity.Prototypes.Gestures2</RootNamespace>
+    <AssemblyName>Clarity.Prototypes.Gestures2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Clarity.Prototypes.Gestures2.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Clarity.Prototypes.Gestures2.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP7, Version=3.0.0.27837, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GalaSoft.MvvmLight.WP7, Version=3.0.0.27833, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=3.7.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Interactivity, Version=3.7.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interactivity\Input\GestureBehavior.cs" />
+    <Compile Include="Interactivity\Input\PressAndTapGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\Dollar\Category.cs" />
+    <Compile Include="Interactivity\Input\Dollar\NBestList.cs" />
+    <Compile Include="Interactivity\Input\Dollar\PointR.cs" />
+    <Compile Include="Interactivity\Input\Dollar\ProgressEvent.cs" />
+    <Compile Include="Interactivity\Input\Dollar\RectangleR.cs" />
+    <Compile Include="Interactivity\Input\Dollar\SizeR.cs" />
+    <Compile Include="Interactivity\Input\Dollar\Unistroke.cs" />
+    <Compile Include="Interactivity\Input\Dollar\Utils.cs" />
+    <Compile Include="Interactivity\Input\DoubleTapGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\FlickGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\GestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\GestureInterpreter.cs" />
+    <Compile Include="Interactivity\Input\GestureTrigger.cs" />
+    <Compile Include="Interactivity\Input\PanGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\Dollar\Recognizer.cs" />
+    <Compile Include="Interactivity\Input\RotateGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\ScaleGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\ShapeGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\TapAndHoldGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\TapGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\TouchHelper.cs" />
+    <Compile Include="Interactivity\Input\TwoFingerDoubleTapGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\TwoFingerTapAndHoldGestureEventArgs.cs" />
+    <Compile Include="Interactivity\Input\TwoFingerTapGestureEventArgs.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPageViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Interactivity\Input\Dollar\Gestures\arrow01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\arrow02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\arrow03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\caret01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\caret02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\caret03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\check01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\check02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\check03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\circle01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\circle02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\circle03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\delete_mark01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\delete_mark02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\delete_mark03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\left_curly_brace01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\left_curly_brace02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\left_curly_brace03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\left_sq_bracket01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\left_sq_bracket02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\left_sq_bracket03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\pigtail01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\pigtail02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\pigtail03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\question_mark01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\question_mark02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\question_mark03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\rectangle01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\rectangle02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\rectangle03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\right_curly_brace01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\right_curly_brace02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\right_curly_brace03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\right_sq_bracket01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\right_sq_bracket02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\right_sq_bracket03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\star01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\star02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\star03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\triangle01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\triangle02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\triangle03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\v01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\v02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\v03.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\x01.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\x02.xml" />
+    <Content Include="Interactivity\Input\Dollar\Gestures\x03.xml" />
+    <Content Include="lib\GalaSoft.MvvmLight.Extras.WP7.dll" />
+    <Content Include="lib\GalaSoft.MvvmLight.WP7.dll" />
+    <Content Include="lib\Microsoft.Expression.Interactions.dll" />
+    <Content Include="lib\System.Windows.Interactivity.dll" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

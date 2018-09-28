@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="TestPattern.SmpteStandard"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	Height="480"
+	Width="800">
+	
+	<Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="7*" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+			<RowDefinition  Height="3*" />
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="7*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="7*" />
+			</Grid.ColumnDefinitions>
+
+			<Rectangle Grid.Column="0" Fill="#FF696969"/>
+			<Rectangle Grid.Column="1" Fill="#FFC1C1c1"/>
+			<Rectangle Grid.Column="2" Fill="#FFC1C100"/>
+			<Rectangle Grid.Column="3" Fill="#FF00C1C1"/>
+			<Rectangle Grid.Column="4" Fill="#FF00C100"/>
+			<Rectangle Grid.Column="5" Fill="#FFC100C1"/>
+			<Rectangle Grid.Column="6" Fill="#FFC10000"/>
+			<Rectangle Grid.Column="7" Fill="#FF0000C1"/>
+			<Rectangle Grid.Column="8" Fill="#FF696969"/>
+		</Grid>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="7*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="36*" />
+				<ColumnDefinition Width="7*" />
+			</Grid.ColumnDefinitions>
+
+			<Rectangle Grid.Column="0" Fill="#FF00ffff"/>
+			<Rectangle Grid.Column="1" Fill="#FF052550"/>
+			<Rectangle Grid.Column="2" Fill="#FFC1C1C1"/>
+			<Rectangle Grid.Column="3" Fill="#FF0000FF"/>
+		</Grid>
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="7*" />
+				<ColumnDefinition Width="6*" />
+				<ColumnDefinition Width="36*" />
+				<ColumnDefinition Width="7*" />
+			</Grid.ColumnDefinitions>
+
+			<Rectangle Grid.Column="0" Fill="#FFFFFF00"/>
+			<Rectangle Grid.Column="1" Fill="#FF36056D"/>
+			<Rectangle Grid.Column="2">
+				<Rectangle.Fill>
+					<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+						<GradientStop Color="#FF050505" Offset="0" />
+						<GradientStop Color="#FFFDFDFD" Offset="1" />
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+			<Rectangle Grid.Column="3" Fill="#FFFF0000"/>
+		</Grid>
+		<Grid Grid.Row="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="56*" />
+				<ColumnDefinition Width="72*" />
+				<ColumnDefinition Width="96*" />
+				<ColumnDefinition Width="45*" />
+				<ColumnDefinition Width="15*" />
+				<ColumnDefinition Width="15*" />
+				<ColumnDefinition Width="15*" />
+				<ColumnDefinition Width="15*" />
+				<ColumnDefinition Width="15*" />
+				<ColumnDefinition Width="48*" />
+				<ColumnDefinition Width="56*" />
+			</Grid.ColumnDefinitions>
+
+			<Rectangle Grid.Column="0" Fill="#FF2B2B2B"/>
+			<Rectangle Grid.Column="1" Fill="#FF050505"/>
+			<Rectangle Grid.Column="2" Fill="#FFFFFFFF"/>
+			<Rectangle Grid.Column="3" Fill="#FF050505"/>
+			<Rectangle Grid.Column="4" Fill="#FF000000"/>
+			<Rectangle Grid.Column="5" Fill="#FF050505"/>
+			<Rectangle Grid.Column="6" Fill="#FF0A0A0A"/>
+			<Rectangle Grid.Column="7" Fill="#FF050505"/>
+			<Rectangle Grid.Column="8" Fill="#FF0D0D0D"/>
+			<Rectangle Grid.Column="9" Fill="#FF050505"/>
+			<Rectangle Grid.Column="10" Fill="#FF2B2B2B"/>
+		</Grid>
+
+	</Grid>
+</UserControl>

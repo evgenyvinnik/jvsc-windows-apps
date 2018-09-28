@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="Use your shield to defend the Core from the evil red organisms!" />
+    <meta name="author" content="Hakim El Hattab" />
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width = 450">
+
+    <title>Core - a defensive game built in HTML5</title>
+
+    <link href='/fonts/Molengo-Regular.ttf' rel='stylesheet' type='text/css'>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <!-- Core references -->
+    <link href="/css/default.css" rel="stylesheet" />
+
+    <link href="/css/reset.css" rel="stylesheet" media="screen" />
+    <link href="/css/main.css" rel="stylesheet" media="screen" />
+
+    <script src="/js/default.js"></script>
+    <script src="/MSAdvertisingJS/ads/ad.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Core</h1>
+        <span class="header-instruction">Expand for more info.</span>
+
+        <!-- The extra content that can be expanded -->
+        <div class="extra">
+
+            <!-- Description of the experiment -->
+            <section id="about">
+                <h3>About</h3>
+                <p>
+                    Your objective is to protect the core from the<br />
+                    evil red organisms while letting green ones through.<br />
+                    Press & hold <b>SPACE</b> for a temporary shield.
+                </p>
+                <p class="credits">
+                    Created by <a href="http://hakim.se/">Hakim El Hattab</a> | <a href="http://twitter.com/hakimel">@hakimel</a>
+                </p>
+                <p class="credits">
+                    Ported by <a href="http://jvsh.ca/">Evgeny Vinnik</a> | <a href="http://twitter.com/evgenyvinnik">@evgenyvinnik</a><br />
+                </p>
+            </section>
+
+        </div>
+    </header>
+
+    <div id="status" class="ui"></div>
+    <div id="panels">
+        <div id="message" class="ui">
+            <h2 id="title">Core</h2>
+            A sibling game to <a class="external" href="http://www.sinuousgame.com/">Sinuous</a>.
+            <ul>
+                <li>1. Protect the core.</li>
+                <li>2. Gather energy (green dots).</li>
+                <li>2. Hold SPACE for shield (depletes energy).</li>
+            </ul>
+            <a href="#" id="startButton">Start</a>
+        </div>
+    </div>
+    <div id="game">
+        <canvas id="world" />
+        <canvas id="background"></canvas>
+    </div>
+    <script src="/js/header.js"></script>
+    <script src="/js/core.js"></script>
+    <footer>
+        <div id="myAd" style="margin: 0 auto; width: 728px; height: 90px; z-index: 1; "
+                data-win-control="MicrosoftNSJS.Advertising.AdControl"
+                data-win-options="{applicationId: 'd25517cb-12d4-4699-8bdc-52040c712cab', adUnitId: '10042998'}">
+        </div>
+        <a href="http://lab.hakim.se/">More <em>Games and Experiments</em></a> |
+        <a href="http://twitter.com/hakimel">Follow <em>@hakimel</em> on Twitter</a>|
+        <a href="http://twitter.com/evgenyvinnik">Follow <em>@evgenyvinnik</em> on Twitter</a>
+    </footer>
+
+</body>
+</html>

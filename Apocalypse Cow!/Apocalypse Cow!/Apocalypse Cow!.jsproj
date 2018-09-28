@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>e3203f83-2bd1-4061-9649-3e52beea5f62</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0'">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <RequiredPlatformVersion>8.1</RequiredPlatformVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>Apocalypse Cow!_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="css\meyerreset.css" />
+    <Content Include="css\style.css" />
+    <Content Include="default.html" />
+    <Content Include="fonts\GermaniaOne-Regular.ttf" />
+    <Content Include="fonts\MacondoSwashCaps-Regular.ttf" />
+    <Content Include="fonts\RuslanDisplay.ttf" />
+    <Content Include="images\logo.scale-100.png" />
+    <Content Include="images\smalllogo.scale-100.png" />
+    <Content Include="images\splashscreen.scale-100.png" />
+    <Content Include="images\storelogo.scale-100.png" />
+    <Content Include="js\AssetLoader.js" />
+    <Content Include="js\AssetsData.js" />
+    <Content Include="js\Configuration.js" />
+    <Content Include="js\default.js" />
+    <Content Include="css\default.css" />
+    <Content Include="js\engine\Actor.js" />
+    <Content Include="js\engine\ActorPool.js" />
+    <Content Include="js\engine\Animation.js" />
+    <Content Include="js\engine\Bitmap.js" />
+    <Content Include="js\engine\ColorLayer.js" />
+    <Content Include="js\engine\CoolButton.js" />
+    <Content Include="js\engine\Ease.js" />
+    <Content Include="js\engine\Engine.js" />
+    <Content Include="js\engine\ImageSource.js" />
+    <Content Include="js\engine\Math.js" />
+    <Content Include="js\engine\Matrix.js" />
+    <Content Include="js\engine\Scene.js" />
+    <Content Include="js\engine\SceneNode.js" />
+    <Content Include="js\engine\SoftButton.js" />
+    <Content Include="js\engine\Sprite.js" />
+    <Content Include="js\engine\TextSprite.js" />
+    <Content Include="js\engine\Tilemap.js" />
+    <Content Include="js\engine\Tileset.js" />
+    <Content Include="js\engine\Timer.js" />
+    <Content Include="js\engine\Vector.js" />
+    <Content Include="js\game\BlockMarker.js" />
+    <Content Include="js\game\BlockShape.js" />
+    <Content Include="js\game\Bullet.js" />
+    <Content Include="js\game\Camera.js" />
+    <Content Include="js\game\Cannon.js" />
+    <Content Include="js\game\CannonMarker.js" />
+    <Content Include="js\game\Castle.js" />
+    <Content Include="js\game\Cloud.js" />
+    <Content Include="js\game\Cow.js" />
+    <Content Include="js\game\CowBullet.js" />
+    <Content Include="js\game\CowTransportShip.js" />
+    <Content Include="js\game\Cowzilla.js" />
+    <Content Include="js\game\DamageMarker.js" />
+    <Content Include="js\game\DefeatElement.js" />
+    <Content Include="js\game\DomMessageBanner.js" />
+    <Content Include="js\game\Enemy.js" />
+    <Content Include="js\game\Entity.js" />
+    <Content Include="js\game\Friendly.js" />
+    <Content Include="js\game\Game.js" />
+    <Content Include="js\game\HitEffect.js" />
+    <Content Include="js\game\ImpactText.js" />
+    <Content Include="js\game\Map.js" />
+    <Content Include="js\game\MegaCow.js" />
+    <Content Include="js\game\MessageBanner.js" />
+    <Content Include="js\game\SantaCow.js" />
+    <Content Include="js\game\ScoreMarker.js" />
+    <Content Include="js\game\Shelf.js" />
+    <Content Include="js\game\Ship.js" />
+    <Content Include="js\game\Soldier.js" />
+    <Content Include="js\game\TileMarker.js" />
+    <Content Include="js\game\TransportShip.js" />
+    <Content Include="js\game\Wall.js" />
+    <Content Include="js\lib\bozz.js" />
+    <Content Include="js\lib\detectenv.js" />
+    <Content Include="js\lib\trace.js" />
+    <Content Include="js\lib\utils.js" />
+    <Content Include="js\Main.js" />
+    <Content Include="js\menu\HighscoreMenu.js" />
+    <Content Include="js\menu\MainMenu.js" />
+    <Content Include="js\menu\Menu.js" />
+    <Content Include="js\ui\UIButton.js" />
+    <Content Include="lib\jquery.js" />
+    <Content Include="media\img\.directory" />
+    <Content Include="media\img\acow-logo.png" />
+    <Content Include="media\img\bg_off.png" />
+    <Content Include="media\img\bg_on.png" />
+    <Content Include="media\img\blood.png" />
+    <Content Include="media\img\bottom-shelf-fill.png" />
+    <Content Include="media\img\bottom-shelf-left.png" />
+    <Content Include="media\img\bottom-shelf-right.png" />
+    <Content Include="media\img\button_minus.png" />
+    <Content Include="media\img\button_plus.png" />
+    <Content Include="media\img\cannonball.png" />
+    <Content Include="media\img\cannonball_shadow.png" />
+    <Content Include="media\img\cannon_anim.png" />
+    <Content Include="media\img\cannon_disabled.png" />
+    <Content Include="media\img\cannon_marker.png" />
+    <Content Include="media\img\cannon_marker_error.png" />
+    <Content Include="media\img\castle.png" />
+    <Content Include="media\img\castle_anim.png" />
+    <Content Include="media\img\castle_disabled_anim.png" />
+    <Content Include="media\img\cloud1.png" />
+    <Content Include="media\img\cloud1_shadow.png" />
+    <Content Include="media\img\cloud2.png" />
+    <Content Include="media\img\cloud2_shadow.png" />
+    <Content Include="media\img\cloud3.png" />
+    <Content Include="media\img\cloud3_shadow.png" />
+    <Content Include="media\img\cow-death-left.png" />
+    <Content Include="media\img\cow-death-right.png" />
+    <Content Include="media\img\cow-fly-left.png" />
+    <Content Include="media\img\cow-left.png" />
+    <Content Include="media\img\cow-moo-left.png" />
+    <Content Include="media\img\cow-moo-right.png" />
+    <Content Include="media\img\cow-right.png" />
+    <Content Include="media\img\cow-walk-left.png" />
+    <Content Include="media\img\cow-walk-right.png" />
+    <Content Include="media\img\cowface.png" />
+    <Content Include="media\img\cowzilla-death-left.png" />
+    <Content Include="media\img\cowzilla-death-right.png" />
+    <Content Include="media\img\cowzilla-left.png" />
+    <Content Include="media\img\cowzilla-right.png" />
+    <Content Include="media\img\cowzilla.png" />
+    <Content Include="media\img\explosion_anim.png" />
+    <Content Include="media\img\explosion_light.png" />
+    <Content Include="media\img\ground_hit_anim.png" />
+    <Content Include="media\img\left_off.png" />
+    <Content Include="media\img\left_on.png" />
+    <Content Include="media\img\leveltiles.png" />
+    <Content Include="media\img\loading.png" />
+    <Content Include="media\img\mega-cow-death-left.png" />
+    <Content Include="media\img\mega-cow-death-right.png" />
+    <Content Include="media\img\mega-cow-fly-left.png" />
+    <Content Include="media\img\mega-cow-left.png" />
+    <Content Include="media\img\mega-cow-right copy.png" />
+    <Content Include="media\img\mega-cow-right.png" />
+    <Content Include="media\img\nsg_logo_color.png" />
+    <Content Include="media\img\nsg_logo_medium_bw.png" />
+    <Content Include="media\img\nsg_logo_small_bw.png" />
+    <Content Include="media\img\pause.png" />
+    <Content Include="media\img\pirateship_down_anim.png" />
+    <Content Include="media\img\pirateship_up_anim.png" />
+    <Content Include="media\img\right_off.png" />
+    <Content Include="media\img\right_on.png" />
+    <Content Include="media\img\sand.png" />
+    <Content Include="media\img\santa-cow-death-left.png" />
+    <Content Include="media\img\santa-cow-death-right.png" />
+    <Content Include="media\img\santa-cow-fly-left.png" />
+    <Content Include="media\img\santa-cow-left.png" />
+    <Content Include="media\img\santa-cow-right.png" />
+    <Content Include="media\img\scroll.png" />
+    <Content Include="media\img\scrollBig.png" />
+    <Content Include="media\img\soldier-attack-left.png" />
+    <Content Include="media\img\soldier-attack-right.png" />
+    <Content Include="media\img\soldier-death-left.png" />
+    <Content Include="media\img\soldier-death-right.png" />
+    <Content Include="media\img\soldier-left.png" />
+    <Content Include="media\img\soldier-right.png" />
+    <Content Include="media\img\soldier-walk-left.png" />
+    <Content Include="media\img\soldier-walk-right.png" />
+    <Content Include="media\img\splash_anim.png" />
+    <Content Include="media\img\status_bar.png" />
+    <Content Include="media\img\tiles.png" />
+    <Content Include="media\img\tilesBig.png" />
+    <Content Include="media\img\title_bg.jpg" />
+    <Content Include="media\img\transport-down-departing.png" />
+    <Content Include="media\img\transport-down-idle.png" />
+    <Content Include="media\img\transport-down-landing.png" />
+    <Content Include="media\img\transport-down-moving.png" />
+    <Content Include="media\img\transport-up-departing.png" />
+    <Content Include="media\img\transport-up-idle.png" />
+    <Content Include="media\img\transport-up-landing.png" />
+    <Content Include="media\img\transport-up-moving.png" />
+    <Content Include="media\img\walltiles.png" />
+    <Content Include="media\img\walltiles_error.png" />
+    <Content Include="media\img\warning.png" />
+    <Content Include="media\license.html" />
+    <Content Include="media\snd\button_press.mp3" />
+    <Content Include="media\snd\button_press.ogg" />
+    <Content Include="media\snd\cannonball_hit_ground.mp3" />
+    <Content Include="media\snd\cannonball_hit_ground.ogg" />
+    <Content Include="media\snd\cannonball_hit_ship.mp3" />
+    <Content Include="media\snd\cannonball_hit_ship.ogg" />
+    <Content Include="media\snd\cannonball_hit_wall.mp3" />
+    <Content Include="media\snd\cannonball_hit_wall.ogg" />
+    <Content Include="media\snd\cannonball_hit_water.mp3" />
+    <Content Include="media\snd\cannonball_hit_water.ogg" />
+    <Content Include="media\snd\cannon_fire_enemy.mp3" />
+    <Content Include="media\snd\cannon_fire_enemy.ogg" />
+    <Content Include="media\snd\cannon_fire_player.mp3" />
+    <Content Include="media\snd\cannon_fire_player.ogg" />
+    <Content Include="media\snd\cowzilla.mp3" />
+    <Content Include="media\snd\cowzilla.ogg" />
+    <Content Include="media\snd\destroy_ship.mp3" />
+    <Content Include="media\snd\destroy_ship.ogg" />
+    <Content Include="media\snd\moo.mp3" />
+    <Content Include="media\snd\moo.ogg" />
+    <Content Include="media\snd\piece_grab.mp3" />
+    <Content Include="media\snd\piece_grab.ogg" />
+    <Content Include="media\snd\piece_rotate.mp3" />
+    <Content Include="media\snd\piece_rotate.ogg" />
+    <Content Include="media\snd\place_cannon.mp3" />
+    <Content Include="media\snd\place_cannon.ogg" />
+    <Content Include="media\snd\place_wall.mp3" />
+    <Content Include="media\snd\place_wall.ogg" />
+    <None Include="Apocalypse Cow!_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.2.0, Version=1.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below then uncomment
+       that target and the DisableFastUpToDateCheck PropertyGroup. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  -->
+</Project>

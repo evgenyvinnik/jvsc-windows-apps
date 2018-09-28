@@ -1,0 +1,601 @@
+﻿// Alchemy game, thanx to http://homepages.bicos.de/steinruecken/alchemy/ for great idea
+// created by Elegar and Veon in 2010
+var opened = [];
+var last_reaction='';
+var sortType = 1;
+
+var inits=[], statics=[], reactions={}, recipes={}, classes={}, messages={};
+var destroy_effects=['explode', 'puff', 'fade', 'drop' ];
+
+var settings = {
+"stack":true,
+"add":true,
+"clone":true,
+"abyss":true,
+"hint":true,
+"images":false
+};
+
+function inArray(what, where) {
+	if(where===undefined)return false;
+	for(var i=0; i<where.length; i++)
+		if(what == where[i])
+			return true;
+    return false;
+}
+
+function removeFromArray(val, a, once){
+	for(var i=0; i<a.length; i++){
+		if(a[i]==val){
+			a.splice(i,1);
+			if(once)break;
+		}
+	}
+}
+
+
+function update_dictionary(source, target){
+	for(var i in source){
+		target[i]=source[i];
+	}
+}
+
+function update_inits(a){
+	inits=a;
+}
+
+function update_statics(a){
+	statics=a;
+}
+
+function update_settings(a){
+	update_dictionary(a, settings);
+}
+
+function update_reactions(a){
+	update_dictionary(a, reactions);
+	sortKeys(a);
+}
+function update_classes(a){
+	update_dictionary(a, classes);
+}
+
+function update_messages(a){
+	sortKeys(a);
+	update_dictionary(a, messages);
+	if(!messages.final_message){
+		messages.final_message = "Вы открыли все возможные элементы!";
+	}
+}
+
+function add_recipe(name, reaction){
+	recipes[name].push(reaction);
+	var name_crc = $.crc32(name);
+	if($('#recipe_list').children('#'+name_crc).length==0){
+		$('#recipe_list').append($('<div/>',{text:name, id:name_crc}));
+		$('#'+name_crc).append($('<ul/>'));
+	}
+	$('#'+name_crc+' ul').append($('<li/>',{text:reaction}));
+}
+
+function update_recipes(name, reaction){
+	if(typeof(recipes[name])=='undefined'){
+		recipes[name] = [];
+		add_recipe(name, reaction);
+	}else{
+		if(!inArray(reaction, recipes[name])){
+			add_recipe(name, reaction);	
+		}
+	}
+}	
+		
+function react(r){
+	var reagents = r.sort().join('+');
+	var results = [];
+	if(reactions[reagents]){
+		for(var i in reactions[reagents]){
+			name=reactions[reagents][i];
+			if(name.charAt(0)=='-'){//name starts with at least one minus
+				name = name.substr(1);				
+				if(name.charAt(0)=='-'){//second minus found - necessary element
+					name = name.substr(1);
+					var e = $('#board .element:data(elementName,"'+name+'")').not('.ui-selected').not(':data(toKill,1)').not(':data(maybeKill,1)').first();
+					if(e.length==0)
+						e = $('#board .element:data(elementName,"'+name+'")').not('.ui-selected').not(':data(toKill,1)').first();
+					e.data('toKill', '1');
+					if(e.length==0){//fail reaction						
+						logReaction('Для этой реакции необходимо, чтобы на поле присутствовал еще '+name, reagents);
+						$('#board .element:data(toKill,1)').data('toKill', '0');
+						$('#board .element:data(maybeKill,1)').data('maybeKill', '0');
+						return 0;
+					}
+				}else{//only one minus - unnecessary element
+					var e = $('#board .element:data(elementName,"'+name+'")').not('.ui-selected').not(':data(toKill,1)').not(':data(maybeKill,1)').first();
+					e.data('maybeKill', '1');
+				}
+			}else{
+				results.push(name);
+				if(!inArray(name, r)){
+					var reaction = reagents;//+' = '+reactions[reagents].join(', ');
+					update_recipes(name, reaction);
+				}
+			}
+		}
+		//start reaction
+
+		destroyElement($('#board :data(toKill,1)'));
+		destroyElement($('#board :data(maybeKill,1)'));
+		$('#board .element:data(toKill,1)').data('toKill', '0');
+		$('#board .element:data(maybeKill,1)').data('toKill', '0');		
+		logReaction(reactions[reagents].join(', '), reagents);
+		message(reagents,'pulsate');	
+		return results;
+	}
+	else{ 
+		logReaction(false, reagents);
+		message(reagents,'pulsate');	
+		return 0;
+	}
+}
+
+function destroyElement(element){
+	element=element.filter('.element').not('.static');//filter unkillable statics
+	element.droppable( "destroy" );
+	//element.effect(destroy_effects[Math.floor(Math.random()*destroy_effects.length)],{},1000, function(){element.remove();})
+	element.fadeOut(1000, function(){element.remove();});
+	element.data("isDead", 1);
+}
+
+function clearBoard(){
+	$('#board').children('.element').not('.static').animate(
+		{"top": $('#abyss').offset().top+50, "left": $('#abyss').offset().left+50}, 1000,
+		function(){destroyElement($(this));}
+	);
+	//destroyElement($('#board').children('.element'));
+}
+
+function cloneElement(element){
+	if(settings.clone){
+		placeElements([element.data("elementName"), element.data("elementName")], element.offset());
+		destroyElement(element);
+	}
+}
+
+function logReaction(result, reagents){
+	var result_str;
+	if(!result){
+		result_str = 'Нет реакции';
+	}
+	else{
+		result_str = result;
+	}
+	$('#info').text(reagents+' = '+result_str);
+	$('#info').append('<br>');
+}
+
+function onDrop(event, ui) {
+    var result = react([ui.helper.data("elementName"), $(this).data("elementName")]);
+	if(result!=0){
+		placeElements(result, $(this).offset());
+		destroyElement(ui.helper);
+		destroyElement($(this));
+		var a=0;
+	}
+	else{
+		result='no reaction';
+	}
+}
+
+function onSelectStop(){
+	var reagents = [];
+	var x=0,y=0, count=0;
+	$(".ui-selected", this).not(':data(isDead,1)').each(function(){
+		reagents.push($(this).data('elementName'));
+		x = $(this).offset().left+x;
+		y = $(this).offset().top+y;
+		count++;
+	});
+
+	result = react(reagents);
+	if(result!=0){
+		x = Math.floor(x/count);
+		y = Math.floor(y/count);
+		
+		$(".ui-selected", this).animate(
+			{"top": y, "left": x}, 400,
+			function(){destroyElement($(this));}
+		);
+
+		placeElements(result, {left:x, top:y});	
+	}
+}
+
+function log(text, effect){
+	var o = $('<span/>', {"class":"questbox", "text": text});
+	o.appendTo($('#info'));
+		if(effect && !$.browser.msie){
+			o.effect(effect,'fast');
+		}	
+}
+
+function message(name, effect){
+	if(messages[name]!==undefined){
+		log(messages[name], effect);
+	}
+}
+
+function refreshStat(){
+	$('#stat').text('('+opened.length+'/'+(element_count)+')');
+	if(opened.length == element_count){
+		message('final_message','highlight');
+	}
+}
+
+function textOrImage(a, name){
+	if(classes[name]){
+		var elStyles = classes[name].split(' ');
+		for(var i in elStyles){
+			if(elStyles[i].charAt(0)=='_'){
+				if (settings.images){
+					//a.css('background-image','url("/img/1402/'+elStyles[i].substr(1)+'.png")');
+					a.append($('<img/>', {src: '/img/1402/'+elStyles[i].substr(1)+'.png', 'class':'element-icon'}));
+					a.addClass('img-element');
+					a.data('image', elStyles[i].substr(1));
+				}else{
+					a.text(name);
+				}
+			}
+		}
+		if(!a.data('image')) a.text(name);
+	}else
+		a.text(name);
+}
+
+function addElement(name, place, no_discover){
+	var a = $('<div/>', {'class':'element '+classes[name], 'title':name}).appendTo('#board');
+	a.data('image','');
+//	a.text(name);	
+//	a.html(parseBBCode($('<div/>').text(name).html()));
+	textOrImage(a,name);
+
+	if(place!==undefined){
+	
+		//a.offset({top: place.top+$(window).scrollTop(), left: place.left+$(window).scrollLeft()});
+		a.animate({"top": place.top, "left": place.left+$(window).scrollLeft()},0);
+	}
+	if(inArray(name, statics)) a.addClass('static');
+    a.data("elementName", name);
+	a.draggable({scroll: false});
+	a.droppable({drop: onDrop});
+	a.bind("dblclick", function(e){cloneElement(a); e.stopPropagation();});
+	a.bind("mousedown", function(e){a.topZIndex();});
+	if (!$.browser.msie) a.corner();
+	
+	if(!no_discover)discoverElement(name);
+	return a;
+}
+
+function createShortcut(name){
+	var o = $("<span/>", {
+		'class': 'element '+classes[name]
+	});
+	textOrImage(o, name);
+	if(o.data('image')){
+		o.attr('title',name)
+		o.addClass('img-stack-element');
+		o.removeClass('img-element');
+	}else
+		o.attr('title', ((recipes[name]===undefined)? '' : recipes[name].join('; ')));
+	o.draggable({
+		distance: 5,
+		helper: function(){ return addElement(name, {top: 0, left: 0}); },
+		stop: function(event, ui){
+			if (!ui.helper.data("isDead")){
+				addElement(name, ui.helper.offset()).appendTo('#board');
+			}
+		}
+	});
+	o.data("elementName", name);
+	o.css('position','relative');
+	o.css('border','0px');
+	return o;
+}
+
+function addToStack(name){
+    var preHeight = $('#order_123').height();
+	// discover order
+	var o = createShortcut(name);
+	o.appendTo($('#order_123'));
+	
+	// alphabetical order
+	var o = createShortcut(name);
+	var i=0;
+	var sorted = opened.slice(0).sort();
+	if(sorted.length>1){
+		while( name > sorted[i]) i++;
+		if(i<1)
+			o.prependTo($('#order_abc'));
+		else
+			o.insertAfter($('#order_abc').children('.element:eq('+(i-1)+')'));
+	}else 
+		o.appendTo($('#order_abc'));
+		
+	// groups order
+	var o = createShortcut(name);	
+	if (classes[name])
+		group = '_'+classes[name].split(' ')[0];
+	else
+		group = '_no_group';
+	if($('#order_group').children('.'+group).size()===0)
+		$('<span/>', {"class":group}).appendTo($('#order_group'));
+	$('#order_group').children('.'+group).append(o);
+	
+    var postHeight = $('#order_123').height();
+    if(typeof(VK) != 'undefined')
+    {
+        var deltaHeight = postHeight - preHeight;
+        var newHeight = $(window).height() + deltaHeight;
+        VK.callMethod('resizeWindow', $(window).width(), newHeight);
+    }
+}
+
+function discoverElement(name, verbose){
+	if(!inArray(name, opened)){
+		opened.push(name);
+		if(verbose===undefined || verbose===true) message(name,'pulsate');
+		if(settings['stack']&&(!inArray(name, statics))) addToStack(name);
+		refreshStat();
+		if($('#help').css('display')=='block'){
+			showHint();
+		}
+		$('#save').show();
+	}
+}
+
+function placeElements(names, place, firstPush){
+	var x = place.left, y = place.top;
+	var c = names.length;
+	var pi = Math.PI, a = 2*pi/c;
+	var top, left, radius=10, start_angle=Math.random()*2*pi;
+	var e;
+	
+	for(var i in names){
+		var staticElement = inArray(names[i], statics);
+		if(!staticElement ||(staticElement && !inArray(names[i], opened))){
+			top = Math.floor((c-1)*radius*Math.sin(start_angle+i*a));
+			left = Math.floor((c-1)*radius*Math.cos(start_angle+i*a));
+			top<0 ? top = "-="+(-top)+"px" : top = "+="+top+"px";
+			left<0 ? left = "-="+(-left)+"px" : left = "+="+left+"px";
+			e = addElement(names[i], {"top":y, "left":x});
+			var anim = {top: top, left: left};
+			if (!$.browser.msie){
+				e.css('opacity','0');
+				anim.opacity = 1;
+			}
+			e.animate(anim, 600);
+		}
+	}
+}
+
+
+function sortKeys(a){
+	var newKey='';
+	var buffer = '';
+	for(var i in a){
+		newKey= i.split('+').sort().join('+');
+		buffer = a[i];
+		delete a[i];
+		a[newKey] = buffer;
+	}
+}
+
+function test(type){
+	var elements=[];//inits.slice();
+	for(var i in inits){
+		if(!inArray(inits[i], elements)){
+			elements.push(inits[i]);
+		}
+	}
+	for(var i in reactions){
+		for(var j in reactions[i]){
+			if(reactions[i][j].charAt(0)!='-' && !inArray(reactions[i][j], elements)){
+				elements.push(reactions[i][j]);
+			}
+		}
+	}
+	if(type=='total') return elements;
+	var wrongs = [];
+	for(var i in reactions){
+		var leftsiders = i.split('+');
+		for(var j in leftsiders){
+			if(leftsiders[j].charAt(0)!='-' && !inArray(leftsiders[j], elements) && !inArray(leftsiders[j], wrongs)){
+				wrongs.push(leftsiders[j]);
+			}
+		}
+	}	
+	if(type=='wrongs') return wrongs;
+	
+	var unstyled = [];	
+	if(type===undefined ||  type=='unstyled'){	
+		for (var i in elements){
+			if(elements[i].charAt(0)!='-' &&  classes[elements[i]] === undefined)
+				unstyled.push(elements[i]);
+		}
+	}
+	if(type=='unstyled') return unstyled;
+	var result = [];
+	result.total = elements;
+	result.unstyled = unstyled;
+	result.wrongs = wrongs;
+
+	return result;
+}
+
+
+function tip(){
+	var availible=[], reagents=[];
+	var c=0;
+	for(var i in reactions){
+	
+	    reagents = i.split('+');
+		c=0;
+		for(var j in reagents){
+			if(inArray(reagents[j], opened))
+				c++;
+		}
+		if(c==reagents.length){
+			for(var j in reactions[i]){
+				if(reactions[i][j].charAt(0)!='-' && !inArray(reactions[i][j], availible) && !inArray(reactions[i][j], opened))
+					availible.push(reactions[i][j]);
+			}
+		}
+	}
+	return availible;
+}
+
+
+function save(to){
+	var a = $('#board').children('.element');
+	var elements = [];
+	$('#board').children('.element').each(function(){
+		elements.push({'name':$(this).data('elementName'), 'offset':$(this).offset()});
+	});
+	var data = $.toJSON({"opened":opened, "recipes":recipes, "elements": elements});
+	$.post(to,{"data": data}, function(data){
+		if(data=='OK'){
+			$('#save').fadeOut();
+		}
+		else{
+			alert("Не удалось сохранить игру.");
+		}
+	});
+}
+
+function load(str){
+	json={};
+	$.getJSON(str, function(data) {
+		if(data){
+			$('#info').html('');
+			$('.element').remove();
+			$('#stack').show();
+			opened = [];
+			recipes ={};
+			//recipes = data.recipes;
+			$('#recipe_list').empty();
+			for(var i in data.recipes){
+				for(var j in data.recipes[i]){
+					update_recipes(i, data.recipes[i][j]);
+				}
+			}
+			for(var i in data.opened){
+				discoverElement(data.opened[i], false);
+			}
+			$.each(data.elements, function(key, val){
+				addElement(val.name, val.offset, true);
+			});
+			refreshStat();
+		}else{
+			log('Не удалось загрузить эту игру.');
+		}
+	});
+
+
+}
+
+function toggleSort(){
+	// type: 1 - discover order, 2 - alphabetical, 3 - by groups
+	$('#order_abc').hide();
+	$('#order_group').hide();
+	$('#order_123').hide();	
+	$('#order_'+$('#order').val()).show();
+}
+
+function errMsg(text){
+	$('#err_msg').text(text);
+	$('#err_msg').dialog('open');
+}
+
+function showHint() {
+	var text = tip().join(', ');
+	if(text!='')
+		$("#help_hint").text(text);
+	else{
+		$("#help_hint").text(messages['final_message']);
+	}
+}
+
+function toggleImages(){
+	var a = $('#board').children('.element');
+	for(var i = 0; i < a.length; i++){
+		if(settings.images){ // turn images off
+			if($(a[i]).data('image')!=''){
+				$(a[i]).removeClass('img-element');
+				$(a[i]).css('background-image','none');
+				var name = $(a[i]).data('elementName');
+				$(a[i]).text(name);
+
+			}
+		}else{// turn images on
+			if($(a[i]).data('image')!=''){
+				$(a[i]).addClass('img-element');
+				$(a[i]).css('background-image','url("/img/'+$(a[i]).data('image')+'.png")');
+				$(a[i]).html('&nbsp;');
+
+			}
+		}
+	}
+
+	settings.images = !settings.images;	
+}
+
+function applySettings(settings){
+	if(settings['add']){
+		$(document).bind("dblclick", function(e){
+			placeElements(inits,{top:e.pageY, left:e.pageX});e.stopPropagation()});	
+	}else{
+		$(document).bind("dblclick", function(e){});	
+	}
+	
+	if(settings['stack']){
+		$('#stack').show();
+	}else{
+		$('#stack').hide();
+		$('#stack-btn').hide();
+	}
+	
+	if(settings['abyss']){
+		$('#abyss').show();
+	}else{
+		$('#abyss').hide();
+	}	
+	
+	if(settings['hint']){
+		$('#showHelp').show();
+	}else{
+		$('#showHelp').hide();
+	}	
+	
+	if(settings['counters']===undefined || settings['counters']===true){
+		$('#stat').show();
+	}else{
+		$('#stat').hide();
+	}	
+}
+
+function filterStack(){
+	var val = $("#elementFilter").val();
+	if(val){
+		$("#stack .element").each(function(index) {
+			if($(this).data('elementName').indexOf(val)>-1)
+				//alert(val);
+				$(this).addClass('highlighted');
+			else
+				$(this).removeClass('highlighted');
+		})
+	}else{
+		$("#stack .element").removeClass('highlighted');
+	}
+}
+
+var element_count;
+var total;

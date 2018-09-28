@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlienGame", "AlienGame\AlienGame\AlienGame.csproj", "{34E33C47-778F-49DE-A2DC-9AEAF37E416C}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "AlienGameContent", "AlienGame\AlienGameContent\AlienGameContent.contentproj", "{A374BA00-8FE6-42F5-BE43-04D050D26309}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs13
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AlienGame\\AlienGame\\AlienGame.csproj
+		SccProjectName1 = AlienGame/AlienGame
+		SccLocalPath1 = AlienGame\\AlienGame
+		SccProjectUniqueName2 = AlienGame\\AlienGameContent\\AlienGameContent.contentproj
+		SccProjectName2 = AlienGame/AlienGameContent
+		SccLocalPath2 = AlienGame\\AlienGameContent
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34E33C47-778F-49DE-A2DC-9AEAF37E416C}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{34E33C47-778F-49DE-A2DC-9AEAF37E416C}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{34E33C47-778F-49DE-A2DC-9AEAF37E416C}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{34E33C47-778F-49DE-A2DC-9AEAF37E416C}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{34E33C47-778F-49DE-A2DC-9AEAF37E416C}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{34E33C47-778F-49DE-A2DC-9AEAF37E416C}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{A374BA00-8FE6-42F5-BE43-04D050D26309}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{A374BA00-8FE6-42F5-BE43-04D050D26309}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

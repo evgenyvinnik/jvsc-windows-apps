@@ -1,0 +1,97 @@
+﻿Good question! There are lots of ways to specify a color and each has their dimensionality.
+The RGB colorspace, for example has three colors, making a 3d space.
+One quantitative way would be to calculate the euclidian distance.
+For example if color 1 is (r1, g1, b1) in and color 2 is (r2, g2, b2),
+then you can calculate the euclidian distance between the two colors
+by taking the square root of the quantity [(r2-r1)*(r2-r1) + (g2-g1)*(g2-g1) + (b2-b1)*(b2-b1)].
+For example, lets pick two sets of colors from the highly ranked and very beautiful Winter Break pallet.
+Using this method, comparing Break yellow and Break green gives a distance of 63.98.
+However, for the more dissimilar looking colors of terra cotta and Break green, the euclidian distance is 180.39.
+So even crude color comparison like this can be quite scientific and give reasonable results.
+However, comparisons based on a metric like euclidian distance assumes that the rgb colorspace is orthogonal, homogenous, and linear in all three dimensions.
+These assumptions are subject to the composition of one's photoreceptors and to the method of translating these values into electromagnetic radiation.
+
+
+I agree that you can't digitize perception but I don't see why you can't mathematically calculate similarity.
+You'd need a point of reference in which to reference it by but colors especially on computers are nothing but numbers.
+
+Just convert a pair of color's Hex -> RGB - >HSV and calculate the difference between hue,
+saturation and value then compare that difference (or range) to another set and there would be some way to compare similarities.
+It wouldn't be a spot on exact science but I'm sure it wouldn't be impossible to work out something logical to play with.
+
+
+My first idea is to treat the RGB space as three-dimensional (cartesian) space, and calculate the distance accordingly as
+
+(sqrt (+ (square diff-red)
+		 (square diff-green)
+		 (square diff-blue)))
+edit: The usefulness of this depends on what you want to do with it. Just being darker would be interpreted as a different colour this way,
+I don't know whether you want that.
+
+
+
+The conversion algorithms for these color spaces are originally from the book Fundamentals of Interactive Computer Graphics by Foley and van Dam (c 1982, Addison-Wesley). Chapter 17 describes color spaces and shows their relationships via easy-to-follow diagrams. NB this is a wonderful book, but if you are going to get a copy, I suggest you look for the latest edition.
+
+RGB - HSL
+
+Convert the RBG values to the range 0-1
+Example: from the video colors page, colorbar red has R=83%, B=7%, G=7%, or in this scale, R=.83, B=.07, G=.07
+Find min and max values of R, B, G
+In the example, maxcolor = .83, mincolor=.07
+L = (maxcolor + mincolor)/2 
+For the example, L = (.83+.07)/2 = .45
+If the max and min colors are the same (ie the color is some kind of grey), S is defined to be 0, and H is undefined but in programs usually written as 0
+Otherwise, test L. 
+If L < 0.5, S=(maxcolor-mincolor)/(maxcolor+mincolor)
+If L >=0.5, S=(maxcolor-mincolor)/(2.0-maxcolor-mincolor)
+For the example, L=0.45 so S=(.83-.07)/(.83+.07) = .84
+If R=maxcolor, H = (G-B)/(maxcolor-mincolor)
+If G=maxcolor, H = 2.0 + (B-R)/(maxcolor-mincolor)
+If B=maxcolor, H = 4.0 + (R-G)/(maxcolor-mincolor)
+For the example, R=maxcolor so H = (.07-.07)/(.83-.07) = 0
+To use the scaling shown in the video color page, convert L and S back to percentages, and H into an angle in degrees (ie scale it from 0-360). From the computation in step 6, H will range from 0-6. RGB space is a cube, and HSL space is a double hexacone, where L is the principal diagonal of the RGB cube. Thus corners of the RGB cube; red, yellow, green, cyan, blue, and magenta, become the vertices of the HSL hexagon. Then the value 0-6 for H tells you which section of the hexgon you are in. H is most commonly given as in degrees, so to convert
+H = H*60.0
+If H is negative, add 360 to complete the conversion.
+HSL - RGB
+
+If S=0, define R, G, and B all to L
+Otherwise, test L.
+If L < 0.5, temp2=L*(1.0+S)
+If L >= 0.5, temp2=L+S - L*S
+In the colorbar example for colorbar green, H=120, L=52, S=79, so converting to the range 0-1, L=.52, so
+temp2=(.52+.79) - (.52*.79) = .899
+temp1 = 2.0*L - temp2
+In the example, temp1 = 2.0*.52 - .899 = .141
+Convert H to the range 0-1
+In the example, H=120/360 = .33
+For each of R, G, B, compute another temporary value, temp3, as follows:
+for R, temp3=H+1.0/3.0
+for G, temp3=H
+for B, temp3=H-1.0/3.0
+if temp3 < 0, temp3 = temp3 + 1.0
+if temp3 > 1, temp3 = temp3 - 1.0
+In the example, Rtemp3=.33+.33 = .66, Gtemp3=.33, Btemp3=.33-.33=0
+For each of R, G, B, do the following test:
+If 6.0*temp3 < 1, color=temp1+(temp2-temp1)*6.0*temp3
+Else if 2.0*temp3 < 1, color=temp2
+Else if 3.0*temp3 < 2, color=temp1+(temp2-temp1)*((2.0/3.0)-temp3)*6.0
+Else color=temp1
+In the example,
+3.0*Rtemp3 < 2 so R=.141+(.899-.141)*((2.0/3.0-.66)*6.0=.141
+2.0*Gtemp3 < 1 so G=.899
+6.0*Btemp3 < 1 so B=.141+(.899-.141)*6.0*0=.141
+Scale back to the range 0-100 to use the scaling shown in the video color page
+For the example, R=14, G=90, B=14
+
+
+	Something like this:
+	public static int CompareColors(Color a, Color b)
+	{
+		return 100 * (int)(
+			1.0 - ((double)(
+				Math.Abs(a.R - b.R) +
+				Math.Abs(a.G - b.G) +
+				Math.Abs(a.B - b.B)
+			) / (256.0 * 3))
+		);
+	}

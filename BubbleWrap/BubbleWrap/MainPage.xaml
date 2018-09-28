@@ -1,0 +1,213 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="BubbleWrap.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="Portrait"
+	Orientation="Portrait"
+	shell:SystemTray.IsVisible="False">
+
+	<phone:PhoneApplicationPage.Resources>
+		<Image x:Name="original" Source="..\Resources\Images\image 60.png"/>
+		<Image x:Name="pushed1" Source="..\Resources\Images\image 62.png"/>
+		<Image x:Name="pushed2" Source="..\Resources\Images\image 65.png"/>
+		<Image x:Name="pushed3" Source="..\Resources\Images\image 68.png"/>
+		<Image x:Name="pushed4" Source="..\Resources\Images\image 71.png"/>
+		<Image x:Name="pushed5" Source="..\Resources\Images\image 74.png"/>
+		<Image x:Name="pushed6" Source="..\Resources\Images\image 77.png"/>
+	</phone:PhoneApplicationPage.Resources>
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="Main" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="520"/>
+			<RowDefinition Height="120"/>
+			<RowDefinition Height="80"/>
+		</Grid.RowDefinitions>
+
+		<Grid x:Name="Status" Grid.Row ="0">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="80" />
+				<ColumnDefinition Width="80" />
+			</Grid.ColumnDefinitions>
+			<TextBlock x:Name="PlayerName" Text="Player" />
+			<TextBlock x:Name="ScoreText"
+					   Text="Bubbles popped so far: 0"
+					   Grid.Row="1"/>
+			<Image MouseLeftButtonDown="SettingsButtonDown"
+				   Grid.Column ="1"
+				   Grid.RowSpan="2"
+				   Grid.Row="0"
+				   Source="..\Resources\Images\settings.png"
+				   Stretch="Fill" />
+			<Image MouseLeftButtonDown="TopButtonDown"
+				   Grid.Column ="2"
+				   Grid.RowSpan="2"
+				   Grid.Row="0"
+				   Source="..\Resources\Images\top.jpg"
+				   Stretch="Fill" />
+		</Grid>
+		<Grid x:Name="Settings" Grid.Row ="1" Visibility="Collapsed">
+			<StackPanel Margin="0,40,0,0">
+				<TextBlock Text="Change Name" FontWeight="Bold"  FontSize="20" />
+				<TextBox x:Name="PlayerNameTextBox" Text="Player"  FontSize="24" MaxLength="30" />
+				<Button x:Name="SetNameButton" Content="Set" Click="SetNameButtonClick"/>
+				<TextBlock x:Name="Score" Text="Bubbles popped so far: 0" Margin="0,40,0,0" FontSize="18" />
+				<TextBlock x:Name="Attempts" Text="You had 0 attempts" Margin="0,40,0,0" FontSize="18" />
+			</StackPanel>
+		</Grid>
+		<Grid x:Name="TopPlayers" Grid.Row="1" Visibility="Collapsed">
+			<ListBox x:Name="topPlayersList">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid Margin="0,10,0,5">
+							<Grid.RowDefinitions>
+								<RowDefinition />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition />
+								<ColumnDefinition Width="100"/>
+								<ColumnDefinition />
+								<ColumnDefinition Width="120"/>
+								<ColumnDefinition />
+							</Grid.ColumnDefinitions>
+
+							<TextBlock FontSize="44" Text="{Binding Position}" Grid.RowSpan="2" FontWeight="Bold" />
+
+							<TextBlock FontSize="22" Text="{Binding Name}" Grid.Column="1" Grid.ColumnSpan="4" Margin="20,0,0,0" FontWeight="Bold" />
+							<TextBlock FontSize="22" Text="Score:" Grid.Row="1" Grid.Column="1" Margin="20,0,0,0" />
+							<TextBlock FontSize="22" Text="{Binding Score}" Grid.Row="1" Grid.Column="2" Margin="0,0,0,20" />
+							<TextBlock FontSize="22" Text="Attempts:" Grid.Row="1" Grid.Column="3" Margin="20,0,0,0" />
+							<TextBlock FontSize="22" Text="{Binding Attempts}" Grid.Row="1" Grid.Column="4" />
+
+						</Grid>
+						
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+
+			</ListBox>
+		</Grid>
+		<Grid x:Name="LayoutRoot" Grid.Row ="1">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<Grid.Background>
+				<ImageBrush ImageSource="..\Resources\Images\image 90.jpg"/>
+			</Grid.Background>
+
+			<!--Row 0-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="0" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="3" Grid.ColumnSpan="2" Grid.Row="0" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="5" Grid.ColumnSpan="2" Grid.Row="0" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="7" Grid.ColumnSpan="2" Grid.Row="0" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="9" Grid.ColumnSpan="2" Grid.Row="0" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="11" Grid.ColumnSpan="2" Grid.Row="0" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+
+			<!--Row 1-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="0" Grid.ColumnSpan="2" Grid.Row="1" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="2" Grid.ColumnSpan="2" Grid.Row="1" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="4" Grid.ColumnSpan="2" Grid.Row="1" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="6" Grid.ColumnSpan="2" Grid.Row="1" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="8" Grid.ColumnSpan="2" Grid.Row="1" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="10" Grid.ColumnSpan="2" Grid.Row="1" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="12" Grid.ColumnSpan="2" Grid.Row="1" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+
+			<!--Row 2-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="2" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="3" Grid.ColumnSpan="2" Grid.Row="2" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="5" Grid.ColumnSpan="2" Grid.Row="2" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="7" Grid.ColumnSpan="2" Grid.Row="2" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="9" Grid.ColumnSpan="2" Grid.Row="2" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="11" Grid.ColumnSpan="2" Grid.Row="2" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+
+			<!--Row 3-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="0" Grid.ColumnSpan="2" Grid.Row="3" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="2" Grid.ColumnSpan="2" Grid.Row="3" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="4" Grid.ColumnSpan="2" Grid.Row="3" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="6" Grid.ColumnSpan="2" Grid.Row="3" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="8" Grid.ColumnSpan="2" Grid.Row="3" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="10" Grid.ColumnSpan="2" Grid.Row="3" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="12" Grid.ColumnSpan="2" Grid.Row="3" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+
+			<!--Row 4-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="4" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="3" Grid.ColumnSpan="2" Grid.Row="4" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="5" Grid.ColumnSpan="2" Grid.Row="4" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="7" Grid.ColumnSpan="2" Grid.Row="4" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="9" Grid.ColumnSpan="2" Grid.Row="4" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="11" Grid.ColumnSpan="2" Grid.Row="4" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+
+			<!--Row 5-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="0" Grid.ColumnSpan="2" Grid.Row="5" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="2" Grid.ColumnSpan="2" Grid.Row="5" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="4" Grid.ColumnSpan="2" Grid.Row="5" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="6" Grid.ColumnSpan="2" Grid.Row="5" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="8" Grid.ColumnSpan="2" Grid.Row="5" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="10" Grid.ColumnSpan="2" Grid.Row="5" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="12" Grid.ColumnSpan="2" Grid.Row="5" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+
+			<!--Row 6-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="1" Grid.ColumnSpan="2" Grid.Row="6" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="3" Grid.ColumnSpan="2" Grid.Row="6" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="5" Grid.ColumnSpan="2" Grid.Row="6" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="7" Grid.ColumnSpan="2" Grid.Row="6" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="9" Grid.ColumnSpan="2" Grid.Row="6" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="11" Grid.ColumnSpan="2" Grid.Row="6" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+
+			<!--Row 7-->
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="0" Grid.ColumnSpan="2" Grid.Row="7" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="2" Grid.ColumnSpan="2" Grid.Row="7" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="4" Grid.ColumnSpan="2" Grid.Row="7" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="6" Grid.ColumnSpan="2" Grid.Row="7" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="8" Grid.ColumnSpan="2" Grid.Row="7" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="10" Grid.ColumnSpan="2" Grid.Row="7" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+			<Image MouseLeftButtonDown="ImageMouseLeftButtonDown" Grid.Column ="12" Grid.ColumnSpan="2" Grid.Row="7" Source="..\Resources\Images\image 60.png" Stretch="Fill" />
+		</Grid>
+
+
+		<Grid x:Name="ContentPanel" Grid.Row="2">
+			<Button x:Name="MoreButton" Content="Want more!" Click="MoreButtonClick" FontSize="36" />
+		</Grid>
+		<Grid Grid.Row="3">
+			<UI:AdControl ApplicationId="3441d8d5-01b5-4245-b58c-1e56cbc66dfa" AdUnitId="71773" Width="480" Height="80" />
+		</Grid>
+	</Grid>
+
+</phone:PhoneApplicationPage>

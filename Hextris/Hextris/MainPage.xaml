@@ -1,0 +1,138 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="Hextris.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Hextris" xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI" mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="Portrait" Orientation="Portrait"
+	shell:SystemTray.IsVisible="False"
+	Loaded="PhoneApplicationPageLoaded"
+	Unloaded="PhoneApplicationPageUnloaded">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="150"/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<local:BeautifulCanvas/>
+
+		<UI:AdControl x:Name="adControl" 
+					  ApplicationId="57328b10-b7b2-4372-96fe-0b66cbed7b82" AdUnitId="71777"
+					  Width="480" Height="80"
+					  Grid.ColumnSpan="4"/>
+
+		<UI:AdControl x:Name="adControl2" 
+					  ApplicationId="baa9f00f-f60b-4544-9eb0-c6db6ac99144" AdUnitId="71778"
+					  Width="480" Height="80"
+					  Grid.ColumnSpan="4"
+					  Grid.Row="1"/>
+
+		<Button x:Name="PauseButton"
+				Grid.Row="2" Grid.Column="0"
+				Click="PauseButtonClick"
+				Style="{StaticResource ShinyBlue}"
+				Margin="10">
+			<Image x:Name="PauseImage" Source="/Resources/Images/pause.png"/>
+		</Button>
+		<Button x:Name="NewGameButton"
+				Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+				Click="NewGameButtonClick"
+				Style="{StaticResource ShinyBlue}"
+				Margin="10">
+			<StackPanel Orientation="Horizontal">
+			<Image Source="/Resources/Images/new.png"/>
+				<TextBlock Text="New Game"
+						   FontFamily="/Resources/amiga4ever.ttf#Amiga Forever"
+						   FontSize="17" 
+						   HorizontalAlignment="Center" VerticalAlignment="Center" />
+			</StackPanel>
+		</Button>
+		<Button x:Name="DemoButton"
+				Grid.Row="2" Grid.Column="3"
+				Click="DemoButtonClick"
+				Style="{StaticResource ShinyBlue}"
+				Margin="10">
+			<Image x:Name="DemoImage" Source="/Resources/Images/demo.png"/>
+		</Button>
+
+
+
+
+		<StackPanel Grid.Column="3" Grid.Row="4" Margin="-20,0,0,0">
+			<TextBlock Text="Level"
+					   FontFamily="/Resources/amiga4ever.ttf#Amiga Forever"/>
+			<TextBlock x:Name="levelLabel"
+					   FontFamily="/Resources/amiga4ever.ttf#Amiga Forever"/>
+		</StackPanel>
+
+		<StackPanel Grid.Column="3" Grid.Row="5"  Margin="-20,0,0,0">
+			<TextBlock Text="Stones"
+					   FontFamily="/Resources/amiga4ever.ttf#Amiga Forever"/>
+			<TextBlock x:Name="stonesLabel"
+					   FontFamily="/Resources/amiga4ever.ttf#Amiga Forever"/>
+		</StackPanel>
+
+		<StackPanel Grid.Column="3" Grid.Row="6"  Margin="-20,0,0,0">
+			<TextBlock Text="Lines"
+					   FontFamily="/Resources/amiga4ever.ttf#Amiga Forever"/>
+			<TextBlock x:Name="linesLabel"
+					   FontFamily="/Resources/amiga4ever.ttf#Amiga Forever"/>
+		</StackPanel>
+
+
+
+
+
+		<RepeatButton x:Name="LeftButton"
+				Grid.Row="7" Grid.Column="0"
+				Click="LeftButtonClick"
+				Style="{StaticResource ShinyBlueRepeat}"
+				Delay="400" Interval="100"
+				Margin="10">
+			<Image Source="/Resources/Images/left.png"/>
+		</RepeatButton>
+		<Button x:Name="DownButton"
+				Grid.Row="7" Grid.Column="1"
+				Click="DownButtonClick"
+				Style="{StaticResource ShinyBlue}"
+				Margin="10">
+			<Image Source="/Resources/Images/down.png"/>
+		</Button>
+		<RepeatButton x:Name="RotateButton"
+				Grid.Row="7" Grid.Column="2"
+				Click="RotateButtonClick"
+				Style="{StaticResource ShinyBlueRepeat}"
+				Margin="10">
+			<Image Source="/Resources/Images/rotate.png"/>
+		</RepeatButton>
+		<RepeatButton x:Name="RightButton"
+				Grid.Row="7" Grid.Column="3"
+				Click="RightButtonClick"
+				Style="{StaticResource ShinyBlueRepeat}"
+				Delay="400" Interval="100"
+				Margin="10">
+			<Image Source="/Resources/Images/right.png"/>
+		</RepeatButton>
+
+	</Grid>
+
+</phone:PhoneApplicationPage>

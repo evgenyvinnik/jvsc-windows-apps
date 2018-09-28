@@ -1,0 +1,437 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="Sfxr.MainPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:Sfxr"
+	xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+	xmlns:LiveControls="clr-namespace:Microsoft.Live.Controls;assembly=Microsoft.Live.Controls" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728" 
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	Loaded="MainPageLoaded"
+	SupportedOrientations="Portrait"
+	Orientation="Portrait"
+	shell:SystemTray.IsVisible="False">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="#C0B090" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid >
+            <LiveControls:SignInButton FontFamily="/Fonts/amiga4ever.ttf#Amiga Forever"
+					    Content="Button" ClientId="00000000480F867A" Name="skydrive" Scopes="wl.basic wl.signin wl.offline_access wl.skydrive_update" SessionChanged="skydrive_SessionChanged"   />
+		</Grid>
+
+		<!--TitlePanel contains the name of the application and page title-->
+
+        <TextBlock Text="8BitSndGen"
+					   Margin="9,0,0,0"
+					   Style="{StaticResource PhoneTextTitle1Style}"
+					   FontFamily="/Fonts/amiga4ever.ttf#Amiga Forever"
+					   Grid.Row="1" FontSize="46"/>
+
+		<ScrollViewer Grid.Row="2">
+			<StackPanel>
+				<TextBlock Text="Generator"
+							Style="{StaticResource OldSchoolTextBlock}"/>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Grid.Column="0">
+						<Button Content="PICKUP/COIN"
+								x:Name="PickupCoinButton" Click="PickupCoinButtonClick"
+								Style="{StaticResource OldSchoolButton}"/>
+						<Button Content="LASER/SHOOT" 
+								x:Name="LaserShootButton" Click="LaserShootButtonClick"
+								Style="{StaticResource OldSchoolButton}"/>
+						<Button Content="EXPLOSION" 
+								x:Name="ExplosionButton" Click="ExplosionButtonClick"
+								Style="{StaticResource OldSchoolButton}"/>
+						<Button Content="POWERUP"
+								x:Name="PowerupButton" Click="PowerupButtonClick"
+								Style="{StaticResource OldSchoolButton}"/>
+					</StackPanel>
+					<StackPanel Grid.Column="1">
+						<Button Content="HIT/HURT"
+								x:Name="HitHurtButton" Click="HitHurtButtonClick"
+								Style="{StaticResource OldSchoolButton}"/>
+						<Button Content="JUMP"
+								x:Name="JumpButton" Click="JumpButtonClick"
+								Style="{StaticResource OldSchoolButton}"/>
+						<Button Content="BLIP/SELECT"
+								x:Name="BlipSelectButton" Click="BlipSelectButtonClick"
+								Style="{StaticResource OldSchoolButton}"/>
+					</StackPanel>
+				</Grid>
+
+				<TextBlock Text="Manual Settings"
+							Style="{StaticResource OldSchoolTextBlock}"/>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<StackPanel Grid.Column="0">
+						<RadioButton GroupName="Wave Group"
+									IsChecked="True"
+									Content="SQUAREWAVE"
+									x:Name="SquareWaveRadioButton" Click="SquareWaveRadioButtonClick"
+									Style="{StaticResource OldSchoolRadioButton}" />
+						<RadioButton GroupName="Wave Group"
+									Content="SAWTOOTH"
+									x:Name="SawToothRadioButton"  Click="SawToothRadioButtonClick"
+									Style="{StaticResource OldSchoolRadioButton}"/>
+					</StackPanel>
+					<StackPanel Grid.Column="1">
+						<RadioButton GroupName="Wave Group"
+									Content="SINEWAVE"
+									x:Name="SineWaveRadioButton" Click="SineWaveRadioButtonClick"
+									Style="{StaticResource OldSchoolRadioButton}"/>
+						<RadioButton GroupName="Wave Group"
+									Content="NOISE"
+									x:Name="NoiseRadioButton" Click="NoiseRadioButtonClick"
+									Style="{StaticResource OldSchoolRadioButton}"/>
+					</StackPanel>
+				</Grid>
+
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+					</Grid.RowDefinitions>
+
+					<!--Rectangles-->
+					<Rectangle Grid.Row="0" Grid.RowSpan="4"
+							   Grid.ColumnSpan="2"
+							   Stroke="Black" StrokeThickness="4"
+							   Margin="12,0,12,-2"/>
+					<Rectangle Grid.Row="4" Grid.RowSpan="6"
+							   Grid.ColumnSpan="2"
+							   Stroke="Black" StrokeThickness="4"
+							   Margin="12,-2,12,-2"/>
+					<Rectangle Grid.Row="10" Grid.RowSpan="2"
+							   Grid.ColumnSpan="2"
+							   Stroke="Black" StrokeThickness="4"
+							   Margin="12,-2,12,-2"/>
+					<Rectangle Grid.Row="12" Grid.RowSpan="2"
+							   Grid.ColumnSpan="2"
+							   Stroke="Black" StrokeThickness="4"
+							   Margin="12,-2,12,-2"/>
+					<Rectangle Grid.Row="14" Grid.RowSpan="1"
+							   Grid.ColumnSpan="2"
+							   Stroke="Black" StrokeThickness="4"
+							   Margin="12,-2,12,-2"/>
+					<Rectangle Grid.Row="15" Grid.RowSpan="2"
+							   Grid.ColumnSpan="2"
+							   Stroke="Black" StrokeThickness="4"
+							   Margin="12,-2,12,-2"/>
+					<Rectangle Grid.Row="17" Grid.RowSpan="5"
+							   Grid.ColumnSpan="2"
+							   Stroke="Black" StrokeThickness="4"
+							   Margin="12,-2,12,0"/>
+
+					<!--Text blocks-->
+					<Button Content="ATTACK TIME"
+							x:Name="AttackTimeButton" Click="AttackTimeButtonClick"
+							Grid.Row="0" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="SUSTAIN TIME"
+							x:Name="SustainTimeButton" Click="SustainTimeButtonClick"
+							Grid.Row="1" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="SUSTAIN PUNCH"
+							x:Name="SustainPunchButton" Click="SustainPunchButtonClick"
+							Grid.Row="2" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="DECAY TIME"
+							x:Name="DecayTimeButton" Click="DecayTimeButtonClick"
+							Grid.Row="3" Style="{StaticResource SliderTextButton}" Padding="0"/>
+
+					<Button Content="START FREQUENCY"
+							x:Name="StartFrequencyButton" Click="StartFrequencyButtonClick"
+							Grid.Row="4" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="MIN FREQUENCY"
+							x:Name="MinFrequencyButton" Click="MinFrequencyButtonClick"
+							Grid.Row="5" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="SLIDE"
+							x:Name="SlideButton" Click="SlideButtonClick"
+							Grid.Row="6" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="DELTA SLIDE"
+							x:Name="DeltaSlideButton" Click="DeltaSlideButtonClick"
+							Grid.Row="7" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="VIBRATO DEPTH"
+							x:Name="VibratoDepthButton" Click="VibratoDepthButtonClick"
+							Grid.Row="8" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="VIBRATO SPEED"
+							x:Name="VibratoSpeedButton" Click="VibratoSpeedButtonClick"
+							Grid.Row="9" Style="{StaticResource SliderTextButton}" Padding="0"/>
+
+					<Button Content="CHANGE AMOUNT"
+							x:Name="ChangeAmountButton" Click="ChangeAmountButtonClick"
+							Grid.Row="10" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="CHANGE SPEED"
+							x:Name="ChangeSpeedButton" Click="ChangeSpeedButtonClick"
+							Grid.Row="11" Style="{StaticResource SliderTextButton}" Padding="0"/>
+
+					<Button Content="SQUARE DUTY"
+							x:Name="SquareDutyButton" Click="SquareDutyButtonClick"
+							Grid.Row="12" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="DUTY SWEEP"
+							x:Name="DutySweepButton" Click="DutySweepButtonClick"
+							Grid.Row="13" Style="{StaticResource SliderTextButton}" Padding="0"/>
+
+					<Button Content="REPEAT SPEED"
+							x:Name="RepeatSpeedButton" Click="RepeatSpeedButtonClick"
+							Grid.Row="14" Style="{StaticResource SliderTextButton}" Padding="0"/>
+
+					<Button Content="PHASER OFFSET"
+							x:Name="PhaserOffsetButton" Click="PhaserOffsetButtonClick"
+							Grid.Row="15" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="PHASER SWEEP"
+							x:Name="PhaserSweepButton" Click="PhaserSweepButtonClick"
+							Grid.Row="16" Style="{StaticResource SliderTextButton}" Padding="0"/>
+
+					<Button Content="LP FLTR CUTOFF"
+							x:Name="LpFilterCutoffButton" Click="LpFilterCutoffButtonClick"
+							Grid.Row="17" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="LP FLTR CUTOFF SWP"
+							x:Name="LpFilterCutoffSweepButton" Click="LpFilterCutoffSweepButtonClick"
+							Grid.Row="18" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="LP FLTR RESONANCE"
+							x:Name="LpFilterResonance" Click="LpFilterResonanceClick"
+							Grid.Row="19" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="HP FLTR CUTOFF"
+							x:Name="HpFilterCutoff"	Click="HpFilterCutoffClick"
+							Grid.Row="20" Style="{StaticResource SliderTextButton}" Padding="0"/>
+					<Button Content="HP FLTR CUTOFF SWP"
+							x:Name="HpFilterCutoffSweep" Click="HpFilterCutoffSweepClick"
+							Grid.Row="21" Style="{StaticResource SliderTextButton}" Padding="0"/>
+
+
+					<!--Sliders-->
+                    <Slider Orientation="Horizontal" 
+                                        x:Name="AttackTimeSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="0"
+										Grid.Column="1"
+										ValueChanged="AttackTimeSliderValueChanged" SmallChange="0.01"
+                                        Margin="0,10,10,-10"/>
+                  
+					<Slider  Orientation="Horizontal"
+										x:Name="SustainTimeSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="1"
+										Grid.Column="1"
+										ValueChanged="SustainTimeSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="SustainPunchSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="2"
+										Grid.Column="1"
+										ValueChanged="SustainPunchSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="DecayTimeSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="3"
+										Grid.Column="1"
+										ValueChanged="DecayTimeSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="StartFrequencySlider"
+										Minimum="0" Maximum="1"
+										Value="0.5"
+										Grid.Row="4"
+										Grid.Column="1"
+										ValueChanged="StartFrequencySliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="MinFrequencySlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="5"
+										Grid.Column="1"
+										ValueChanged="MinFrequencySliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="SlideSlider"
+										Minimum="-1" Maximum="1" 
+										Value="0"
+										Grid.Row="6"
+										Grid.Column="1"
+										ValueChanged="SlideSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="DeltaSlideSlider"
+										Minimum="-1" Maximum="1"
+										Value="0"
+										Grid.Row="7"
+										Grid.Column="1"
+										ValueChanged="DeltaSlideSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="VibratoDepthSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="8"
+										Grid.Column="1"
+										ValueChanged="VibratoDepthSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="VibratoSpeedSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="9"
+										Grid.Column="1"
+										ValueChanged="VibratoSpeedSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="ChangeAmountSlider"
+										Minimum="-1" Maximum="1" 
+										Value="0"
+										Grid.Row="10"
+										Grid.Column="1"
+										ValueChanged="ChangeAmountSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="ChangeSpeedSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="11"
+										Grid.Column="1"
+										ValueChanged="ChangeSpeedSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="SquareDutySlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="12"
+										Grid.Column="1"
+										ValueChanged="SquareDutySliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="DutySweepSlider"
+										Minimum="-1" Maximum="1" 
+										Value="0"
+										Grid.Row="13"
+										Grid.Column="1"
+										ValueChanged="DutySweepSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="RepeatSpeedSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="14"
+										Grid.Column="1"
+										ValueChanged="RepeatSpeedSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="PhaserOffsetSlider"
+										Minimum="-1" Maximum="1"
+										Value="0"
+										Grid.Row="15"
+										Grid.Column="1"
+										ValueChanged="PhaserOffsetSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="PhaserSweepSlider"
+										Minimum="-1" Maximum="1" 
+										Value="0"
+										Grid.Row="16"
+										Grid.Column="1"
+										ValueChanged="PhaserSweepSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="LpFilterCutoffSlider"
+										Minimum="0" Maximum="1" 
+										Value="1"
+										Grid.Row="17"
+										Grid.Column="1"
+										ValueChanged="LpFilterCutoffSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="LpFilterCutoffSweepSlider"
+										Minimum="-1" Maximum="1" 
+										Value="0"
+										Grid.Row="18"
+										Grid.Column="1"
+										ValueChanged="LpFilterCutoffSweepSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="LpFilterResonanceSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="19"
+										Grid.Column="1"
+										ValueChanged="LpFilterResonanceSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+									    x:Name="HpFilterCutoffSlider"
+										Minimum="0" Maximum="1" 
+										Grid.Row="20"
+										Grid.Column="1"
+										ValueChanged="HpFilterCutoffSliderValueChanged"
+										Margin="0,10,10,-10"/>
+                    <Slider  Orientation="Horizontal"
+										x:Name="HpFilterCutoffSweepSlider"
+										Minimum="-1" Maximum="1" 
+										Value="0"
+										Grid.Row="21"
+										Grid.Column="1"
+										ValueChanged="HpFilterCutoffSweepSliderValueChanged"
+										Margin="0,10,10,-10"/>
+				</Grid>
+
+
+			</StackPanel>
+		</ScrollViewer>
+		<Button Content="Play" Grid.Row="3" x:Name="PlayButton" Click="PlayButtonClick"/>
+	</Grid>
+
+	<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+			<shell:ApplicationBarIconButton IconUri="/Image/dark/mutate.png" Text="Mutate" Click="MutateButtonClick"/>
+			<shell:ApplicationBarIconButton IconUri="/Image/dark/randomize.png" Text="Randomize" Click="RandomizeButtonClick"/>
+            <shell:ApplicationBarIconButton IconUri="/Image/dark/save.png" Text="Save" Click="SaveButtonClick"/>
+            <shell:ApplicationBarIconButton IconUri="/Image/dark/undo.png" Text="Undo" Click="UndoButtonClick" IsEnabled="False"/>
+			
+
+
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Redo" x:Name="RedoMenuItem" Click="RedoButtonClick" IsEnabled="False"/>
+
+                <shell:ApplicationBarMenuItem Text="Help/About" x:Name="HelpAboutMenuItem" Click="HelpAboutMenuItemClick"/>
+			</shell:ApplicationBar.MenuItems>
+		</shell:ApplicationBar>
+	</phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

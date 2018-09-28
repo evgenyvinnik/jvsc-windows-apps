@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B534C80-69FA-49A4-AE26-8E2270A2F200}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlchemyGame</RootNamespace>
+    <AssemblyName>AlchemyGame</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>AlchemyGame.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>AlchemyGame.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\00000.png" />
+    <Resource Include="Images\00001.png" />
+    <Resource Include="Images\00002.png" />
+    <Resource Include="Images\00003.png" />
+    <Resource Include="Images\00004.png" />
+    <Resource Include="Images\00005.png" />
+    <Resource Include="Images\00006.png" />
+    <Resource Include="Images\00007.png" />
+    <Resource Include="Images\00008.png" />
+    <Resource Include="Images\00009.png" />
+    <Resource Include="Images\00010.png" />
+    <Resource Include="Images\00011.png" />
+    <Resource Include="Images\00012.png" />
+    <Resource Include="Images\00013.png" />
+    <Resource Include="Images\00014.png" />
+    <Resource Include="Images\00015.png" />
+    <Resource Include="Images\00016.png" />
+    <Resource Include="Images\00017.png" />
+    <Resource Include="Images\al0_en.png" />
+    <Resource Include="Images\al0_ru.png" />
+    <Resource Include="Images\al1_ru.png" />
+    <Resource Include="Images\al3_ru.png" />
+    <Resource Include="Images\alert_dialog_icon.png" />
+    <Resource Include="Images\blank.png" />
+    <Resource Include="Images\grid_check_off.png" />
+    <Resource Include="Images\grid_check_on.png" />
+    <Resource Include="Images\icon.png" />
+    <Resource Include="Images\ic_menu_add.png" />
+    <Resource Include="Images\ic_menu_add_h.png" />
+    <Resource Include="Images\ic_menu_delete_h.png" />
+    <Resource Include="Images\ic_menu_help.png" />
+    <Resource Include="Images\ic_menu_help_h.png" />
+    <Resource Include="Images\j0.png" />
+    <Resource Include="Images\j1.png" />
+    <Resource Include="Images\j10.png" />
+    <Resource Include="Images\j11.png" />
+    <Resource Include="Images\j12.png" />
+    <Resource Include="Images\j13.png" />
+    <Resource Include="Images\j14.png" />
+    <Resource Include="Images\j15.png" />
+    <Resource Include="Images\j16.png" />
+    <Resource Include="Images\j17.png" />
+    <Resource Include="Images\j18.png" />
+    <Resource Include="Images\j19.png" />
+    <Resource Include="Images\j1a.png" />
+    <Resource Include="Images\j1b.png" />
+    <Resource Include="Images\j1c.png" />
+    <Resource Include="Images\j1d.png" />
+    <Resource Include="Images\j1e.png" />
+    <Resource Include="Images\j1f.png" />
+    <Resource Include="Images\j1g.png" />
+    <Resource Include="Images\j1h.png" />
+    <Resource Include="Images\j1i.png" />
+    <Resource Include="Images\j1j.png" />
+    <Resource Include="Images\j1k.png" />
+    <Resource Include="Images\j1l.png" />
+    <Resource Include="Images\j1m.png" />
+    <Resource Include="Images\j1n.png" />
+    <Resource Include="Images\j1o.png" />
+    <Resource Include="Images\j1p.png" />
+    <Resource Include="Images\j1q.png" />
+    <Resource Include="Images\j1r.png" />
+    <Resource Include="Images\j1s.png" />
+    <Resource Include="Images\j1t.png" />
+    <Resource Include="Images\j1u.png" />
+    <Resource Include="Images\j1v.png" />
+    <Resource Include="Images\j1w.png" />
+    <Resource Include="Images\j1x.png" />
+    <Resource Include="Images\j1y.png" />
+    <Resource Include="Images\j1z.png" />
+    <Resource Include="Images\j2.png" />
+    <Resource Include="Images\j20.png" />
+    <Resource Include="Images\j21.png" />
+    <Resource Include="Images\j22.png" />
+    <Resource Include="Images\j23.png" />
+    <Resource Include="Images\j24.png" />
+    <Resource Include="Images\j25.png" />
+    <Resource Include="Images\j26.png" />
+    <Resource Include="Images\j27.png" />
+    <Resource Include="Images\j28.png" />
+    <Resource Include="Images\j29.png" />
+    <Resource Include="Images\j2a.png" />
+    <Resource Include="Images\j2b.png" />
+    <Resource Include="Images\j2c.png" />
+    <Resource Include="Images\j2d.png" />
+    <Resource Include="Images\j2e.png" />
+    <Resource Include="Images\j2f.png" />
+    <Resource Include="Images\j2g.png" />
+    <Resource Include="Images\j2h.png" />
+    <Resource Include="Images\j2i.png" />
+    <Resource Include="Images\j2j.png" />
+    <Resource Include="Images\j2k.png" />
+    <Resource Include="Images\j2l.png" />
+    <Resource Include="Images\j2m.png" />
+    <Resource Include="Images\j2n.png" />
+    <Resource Include="Images\j2o.png" />
+    <Resource Include="Images\j2p.png" />
+    <Resource Include="Images\j2q.png" />
+    <Resource Include="Images\j2r.png" />
+    <Resource Include="Images\j2s.png" />
+    <Resource Include="Images\j2t.png" />
+    <Resource Include="Images\j2u.png" />
+    <Resource Include="Images\j2v.png" />
+    <Resource Include="Images\j2w.png" />
+    <Resource Include="Images\j2x.png" />
+    <Resource Include="Images\j2y.png" />
+    <Resource Include="Images\j2z.png" />
+    <Resource Include="Images\j3.png" />
+    <Resource Include="Images\j30.png" />
+    <Resource Include="Images\j31.png" />
+    <Resource Include="Images\j32.png" />
+    <Resource Include="Images\j33.png" />
+    <Resource Include="Images\j34.png" />
+    <Resource Include="Images\j35.png" />
+    <Resource Include="Images\j36.png" />
+    <Resource Include="Images\j37.png" />
+    <Resource Include="Images\j38.png" />
+    <Resource Include="Images\j39.png" />
+    <Resource Include="Images\j3a.png" />
+    <Resource Include="Images\j3b.png" />
+    <Resource Include="Images\j3c.png" />
+    <Resource Include="Images\j3d.png" />
+    <Resource Include="Images\j3e.png" />
+    <Resource Include="Images\j3f.png" />
+    <Resource Include="Images\j3g.png" />
+    <Resource Include="Images\j3h.png" />
+    <Resource Include="Images\j3i.png" />
+    <Resource Include="Images\j3j.png" />
+    <Resource Include="Images\j3k.png" />
+    <Resource Include="Images\j3l.png" />
+    <Resource Include="Images\j3m.png" />
+    <Resource Include="Images\j3n.png" />
+    <Resource Include="Images\j3o.png" />
+    <Resource Include="Images\j3p.png" />
+    <Resource Include="Images\j3q.png" />
+    <Resource Include="Images\j3r.png" />
+    <Resource Include="Images\j3s.png" />
+    <Resource Include="Images\j3t.png" />
+    <Resource Include="Images\j3u.png" />
+    <Resource Include="Images\j3v.png" />
+    <Resource Include="Images\j3w.png" />
+    <Resource Include="Images\j3x.png" />
+    <Resource Include="Images\j3y.png" />
+    <Resource Include="Images\j3z.png" />
+    <Resource Include="Images\j4.png" />
+    <Resource Include="Images\j40.png" />
+    <Resource Include="Images\j41.png" />
+    <Resource Include="Images\j42.png" />
+    <Resource Include="Images\j43.png" />
+    <Resource Include="Images\j44.png" />
+    <Resource Include="Images\j45.png" />
+    <Resource Include="Images\j46.png" />
+    <Resource Include="Images\j47.png" />
+    <Resource Include="Images\j48.png" />
+    <Resource Include="Images\j49.png" />
+    <Resource Include="Images\j4a.png" />
+    <Resource Include="Images\j4b.png" />
+    <Resource Include="Images\j4c.png" />
+    <Resource Include="Images\j4d.png" />
+    <Resource Include="Images\j4e.png" />
+    <Resource Include="Images\j4f.png" />
+    <Resource Include="Images\j4g.png" />
+    <Resource Include="Images\j4h.png" />
+    <Resource Include="Images\j4i.png" />
+    <Resource Include="Images\j4j.png" />
+    <Resource Include="Images\j4k.png" />
+    <Resource Include="Images\j4l.png" />
+    <Resource Include="Images\j4m.png" />
+    <Resource Include="Images\j4n.png" />
+    <Resource Include="Images\j4o.png" />
+    <Resource Include="Images\j4p.png" />
+    <Resource Include="Images\j4q.png" />
+    <Resource Include="Images\j4r.png" />
+    <Resource Include="Images\j4s.png" />
+    <Resource Include="Images\j4t.png" />
+    <Resource Include="Images\j4u.png" />
+    <Resource Include="Images\j4v.png" />
+    <Resource Include="Images\j4w.png" />
+    <Resource Include="Images\j4x.png" />
+    <Resource Include="Images\j4y.png" />
+    <Resource Include="Images\j4z.png" />
+    <Resource Include="Images\j5.png" />
+    <Resource Include="Images\j50.png" />
+    <Resource Include="Images\j51.png" />
+    <Resource Include="Images\j52.png" />
+    <Resource Include="Images\j53.png" />
+    <Resource Include="Images\j54.png" />
+    <Resource Include="Images\j55.png" />
+    <Resource Include="Images\j56.png" />
+    <Resource Include="Images\j57.png" />
+    <Resource Include="Images\j58.png" />
+    <Resource Include="Images\j59.png" />
+    <Resource Include="Images\j5a.png" />
+    <Resource Include="Images\j5b.png" />
+    <Resource Include="Images\j5c.png" />
+    <Resource Include="Images\j5d.png" />
+    <Resource Include="Images\j5e.png" />
+    <Resource Include="Images\j5f.png" />
+    <Resource Include="Images\j5g.png" />
+    <Resource Include="Images\j5h.png" />
+    <Resource Include="Images\j5i.png" />
+    <Resource Include="Images\j5j.png" />
+    <Resource Include="Images\j5k.png" />
+    <Resource Include="Images\j5l.png" />
+    <Resource Include="Images\j5m.png" />
+    <Resource Include="Images\j5n.png" />
+    <Resource Include="Images\j5o.png" />
+    <Resource Include="Images\j5p.png" />
+    <Resource Include="Images\j5q.png" />
+    <Resource Include="Images\j5r.png" />
+    <Resource Include="Images\j5s.png" />
+    <Resource Include="Images\j5t.png" />
+    <Resource Include="Images\j5u.png" />
+    <Resource Include="Images\j5v.png" />
+    <Resource Include="Images\j5w.png" />
+    <Resource Include="Images\j5x.png" />
+    <Resource Include="Images\j5y.png" />
+    <Resource Include="Images\j5z.png" />
+    <Resource Include="Images\j6.png" />
+    <Resource Include="Images\j60.png" />
+    <Resource Include="Images\j61.png" />
+    <Resource Include="Images\j62.png" />
+    <Resource Include="Images\j63.png" />
+    <Resource Include="Images\j64.png" />
+    <Resource Include="Images\j65.png" />
+    <Resource Include="Images\j66.png" />
+    <Resource Include="Images\j67.png" />
+    <Resource Include="Images\j68.png" />
+    <Resource Include="Images\j69.png" />
+    <Resource Include="Images\j6a.png" />
+    <Resource Include="Images\j6b.png" />
+    <Resource Include="Images\j6c.png" />
+    <Resource Include="Images\j6d.png" />
+    <Resource Include="Images\j6e.png" />
+    <Resource Include="Images\j6f.png" />
+    <Resource Include="Images\j6g.png" />
+    <Resource Include="Images\j6h.png" />
+    <Resource Include="Images\j6i.png" />
+    <Resource Include="Images\j6j.png" />
+    <Resource Include="Images\j6k.png" />
+    <Resource Include="Images\j6l.png" />
+    <Resource Include="Images\j6m.png" />
+    <Resource Include="Images\j6n.png" />
+    <Resource Include="Images\j6o.png" />
+    <Resource Include="Images\j6p.png" />
+    <Resource Include="Images\j6q.png" />
+    <Resource Include="Images\j6r.png" />
+    <Resource Include="Images\j6s.png" />
+    <Resource Include="Images\j6t.png" />
+    <Resource Include="Images\j6u.png" />
+    <Resource Include="Images\j6v.png" />
+    <Resource Include="Images\j6w.png" />
+    <Resource Include="Images\j6x.png" />
+    <Resource Include="Images\j6y.png" />
+    <Resource Include="Images\j6z.png" />
+    <Resource Include="Images\j7.png" />
+    <Resource Include="Images\j70.png" />
+    <Resource Include="Images\j71.png" />
+    <Resource Include="Images\j72.png" />
+    <Resource Include="Images\j73.png" />
+    <Resource Include="Images\j74.png" />
+    <Resource Include="Images\j75.png" />
+    <Resource Include="Images\j76.png" />
+    <Resource Include="Images\j77.png" />
+    <Resource Include="Images\j78.png" />
+    <Resource Include="Images\j79.png" />
+    <Resource Include="Images\j7a.png" />
+    <Resource Include="Images\j7b.png" />
+    <Resource Include="Images\j7c.png" />
+    <Resource Include="Images\j7d.png" />
+    <Resource Include="Images\j7e.png" />
+    <Resource Include="Images\j7f.png" />
+    <Resource Include="Images\j7g.png" />
+    <Resource Include="Images\j7h.png" />
+    <Resource Include="Images\j7i.png" />
+    <Resource Include="Images\j7j.png" />
+    <Resource Include="Images\j7k.png" />
+    <Resource Include="Images\j7l.png" />
+    <Resource Include="Images\j7m.png" />
+    <Resource Include="Images\j7n.png" />
+    <Resource Include="Images\j7o.png" />
+    <Resource Include="Images\j7p.png" />
+    <Resource Include="Images\j7q.png" />
+    <Resource Include="Images\j7r.png" />
+    <Resource Include="Images\j7s.png" />
+    <Resource Include="Images\j7t.png" />
+    <Resource Include="Images\j7u.png" />
+    <Resource Include="Images\j7v.png" />
+    <Resource Include="Images\j7w.png" />
+    <Resource Include="Images\j7x.png" />
+    <Resource Include="Images\j7y.png" />
+    <Resource Include="Images\j7z.png" />
+    <Resource Include="Images\j8.png" />
+    <Resource Include="Images\j80.png" />
+    <Resource Include="Images\j81.png" />
+    <Resource Include="Images\j82.png" />
+    <Resource Include="Images\j83.png" />
+    <Resource Include="Images\j84.png" />
+    <Resource Include="Images\j85.png" />
+    <Resource Include="Images\j86.png" />
+    <Resource Include="Images\j87.png" />
+    <Resource Include="Images\j88.png" />
+    <Resource Include="Images\j89.png" />
+    <Resource Include="Images\j8a.png" />
+    <Resource Include="Images\j8b.png" />
+    <Resource Include="Images\j9.png" />
+    <Resource Include="Images\ja.png" />
+    <Resource Include="Images\jb.png" />
+    <Resource Include="Images\jc.png" />
+    <Resource Include="Images\jd.png" />
+    <Resource Include="Images\je.png" />
+    <Resource Include="Images\jf.png" />
+    <Resource Include="Images\jg.png" />
+    <Resource Include="Images\jh.png" />
+    <Resource Include="Images\ji.png" />
+    <Resource Include="Images\jj.png" />
+    <Resource Include="Images\jk.png" />
+    <Resource Include="Images\jl.png" />
+    <Resource Include="Images\jm.png" />
+    <Resource Include="Images\jn.png" />
+    <Resource Include="Images\jo.png" />
+    <Resource Include="Images\jp.png" />
+    <Resource Include="Images\jq.png" />
+    <Resource Include="Images\jr.png" />
+    <Resource Include="Images\js.png" />
+    <Resource Include="Images\jt.png" />
+    <Resource Include="Images\ju.png" />
+    <Resource Include="Images\jv.png" />
+    <Resource Include="Images\jw.png" />
+    <Resource Include="Images\jx.png" />
+    <Resource Include="Images\jy.png" />
+    <Resource Include="Images\jz.png" />
+    <Resource Include="Images\undo.png" />
+    <Resource Include="Images\undo_h.png" />
+    <Content Include="recipy\alchemygame.ru js alchemy.txt" />
+    <Content Include="recipy\alchemygame.ru media mod-1419.txt" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

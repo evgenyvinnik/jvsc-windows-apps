@@ -1,0 +1,67 @@
+﻿<phone:PhoneApplicationPage 
+	x:Class="PascalInterpreter.HelpAboutPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+	mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+	shell:SystemTray.IsVisible="True">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<controls:Panorama Title="About Pascal Interpreter">
+
+			<!--Panorama item two-->
+			<controls:PanoramaItem Header="About">
+				<StackPanel>
+					<TextBlock Text="Ported by"/>
+					<Button Click="WebSiteButtonClick" >
+						<StackPanel>
+							<TextBlock TextAlignment="Center">
+								John Vinnik
+								<LineBreak/>
+								Software House
+							</TextBlock>
+						</StackPanel>
+
+					</Button>
+					<TextBlock>
+						If you like Pascal Intepreter,
+						<LineBreak/>
+						have ideas how to make it better
+						<LineBreak/>
+						or just want to drop me a line
+						<LineBreak/>
+						don't be shy —
+					</TextBlock>
+
+					<Button Click="MailButtonClick">
+						<StackPanel>
+							<TextBlock Text="PRESS THE BUTTON!" TextAlignment="Center"/>
+						</StackPanel>
+					</Button>
+				</StackPanel>
+			</controls:PanoramaItem>
+
+			<controls:PanoramaItem Header="Praises">
+				<StackPanel>
+					<TextBlock Text="Original idea by"/>
+					<Button Click="BiffButtonClick">
+						<StackPanel>
+							<TextBlock Text="BIFF Pascal Interpereter" TextAlignment="Center" />
+						</StackPanel>
+					</Button>
+				</StackPanel>
+			</controls:PanoramaItem>
+
+		</controls:Panorama>
+	</Grid>
+
+</phone:PhoneApplicationPage>
